@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import Layout from '@/components/Layout';
 import HomePage from '@/pages/HomePage';
 import AboutPage from '@/pages/AboutPage';
@@ -23,6 +23,8 @@ export default function App() {
           <Route path="/services/:serviceSlug" element={<ServiceDetailPage />} />
           <Route path="/service-areas" element={<ServiceAreasIndexPage />} />
           <Route path="/service-areas/:locationSlug" element={<ServiceAreaDetailPage />} />
+          <Route path="/service-area" element={<Navigate to="/service-areas" replace />} />
+          <Route path="/service-area/:locationSlug" element={<ServiceAreaDetailPage />} />
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
           <Route path="/terms-and-conditions" element={<TermsPage />} />

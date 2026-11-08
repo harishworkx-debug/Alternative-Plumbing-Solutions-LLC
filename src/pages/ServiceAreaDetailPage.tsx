@@ -20,8 +20,8 @@ export default function ServiceAreaDetailPage() {
 
   const canonicalUrl = getLocationUrl(location.slug);
 
-  // If accessed through legacy /service-areas/:locationSlug, redirect to /plumber-[location]
-  if (currentPath.startsWith('/service-areas/')) {
+  // If accessed through legacy /service-areas/:locationSlug or /service-area/:locationSlug, redirect to /plumber-[location]
+  if (currentPath.startsWith('/service-areas/') || currentPath.startsWith('/service-area/')) {
     return <Navigate to={canonicalUrl} replace />;
   }
 

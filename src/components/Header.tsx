@@ -135,6 +135,7 @@ export default function Header() {
                   <div className="overflow-hidden rounded-2xl border border-navy-100 bg-white p-3 shadow-2xl shadow-navy-900/15">
                     <Link
                       to="/services"
+                      onClick={() => setServicesOpen(false)}
                       className="flex items-center justify-between rounded-xl bg-navy-50 px-4 py-3 font-semibold text-navy-800 transition-colors hover:bg-navy-100"
                     >
                       All 10 Plumbing Services
@@ -145,6 +146,7 @@ export default function Header() {
                         <Link
                           key={s.slug}
                           to={getServiceUrl(s.slug)}
+                          onClick={() => setServicesOpen(false)}
                           className="group flex items-center gap-2.5 rounded-lg px-3 py-2 text-sm text-navy-700 transition-colors hover:bg-aqua-50 hover:text-navy-900"
                         >
                           <ServiceIcon name={s.icon} className="h-4 w-4 flex-shrink-0 text-aqua-500" />
@@ -183,6 +185,7 @@ export default function Header() {
                   <div className="overflow-hidden rounded-2xl border border-navy-100 bg-white p-3 shadow-2xl shadow-navy-900/15">
                     <Link
                       to="/service-areas"
+                      onClick={() => setAreasOpen(false)}
                       className="flex items-center justify-between rounded-xl bg-navy-50 px-4 py-3 font-semibold text-navy-800 transition-colors hover:bg-navy-100"
                     >
                       All 10 Service Areas
@@ -193,6 +196,7 @@ export default function Header() {
                         <Link
                           key={l.slug}
                           to={getLocationUrl(l.slug)}
+                          onClick={() => setAreasOpen(false)}
                           className="group flex items-center justify-between rounded-lg px-3 py-2 text-sm text-navy-700 transition-colors hover:bg-aqua-50 hover:text-navy-900"
                         >
                           <span className="flex items-center gap-2.5">

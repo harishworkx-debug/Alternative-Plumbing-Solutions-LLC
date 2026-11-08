@@ -704,11 +704,13 @@ export const serviceInLocation: Record<string, string[]> = Object.fromEntries(
 );
 
 export function getService(slug: string): ServiceDef | undefined {
-  return services.find((s) => s.slug === slug);
+  const clean = slug.toLowerCase().trim().replace(/^\/+/, '').replace(/\/+$/, '').replace(/^services?\//, '');
+  return services.find((s) => s.slug === clean);
 }
 
 export function getLocation(slug: string): LocationDef | undefined {
-  return locations.find((l) => l.slug === slug);
+  const clean = slug.toLowerCase().trim().replace(/^\/+/, '').replace(/\/+$/, '');
+  return locations.find((l) => l.slug === clean);
 }
 
 // The primary / headquarters location for Alternative Plumbing Solutions
@@ -716,13 +718,20 @@ export const mainLocation = locations[0];
 
 // Canonical URL for a service area landing page: /plumber-{locationSlug}
 export function getLocationUrl(locationSlug: string): string {
-  if (locationSlug.startsWith('plumber-')) return `/${locationSlug}`;
-  return `/plumber-${locationSlug}`;
+  const clean = locationSlug.toLowerCase().trim().replace(/^\/+/, '').replace(/\/+$/, '');
+  if (clean.startsWith('plumber-')) return `/${clean}`;
+  return `/plumber-${clean}`;
 }
 
 // Find location by slug, with or without state code or plumber- prefix
 export function findLocation(slugOrCity: string): LocationDef | undefined {
-  const normalized = slugOrCity.toLowerCase().trim().replace(/^plumber-/, '');
+  const normalized = slugOrCity
+    .toLowerCase()
+    .trim()
+    .replace(/^\/+/, '')
+    .replace(/\/+$/, '')
+    .replace(/^service-areas?\//, '')
+    .replace(/^plumber-/, '');
   return locations.find(
     (l) =>
       l.slug === normalized ||
@@ -735,7 +744,9 @@ export function findLocation(slugOrCity: string): LocationDef | undefined {
 
 // Combined service-location landing page slugs: {service-slug}-{location-slug}
 export function serviceLocationSlug(serviceSlug: string, locationSlug: string = mainLocation.slug): string {
-  return `${serviceSlug}-${locationSlug}`;
+  const cleanService = serviceSlug.toLowerCase().trim().replace(/^\/+/, '').replace(/\/+$/, '');
+  const cleanLocation = locationSlug.toLowerCase().trim().replace(/^\/+/, '').replace(/\/+$/, '');
+  return `${cleanService}-${cleanLocation}`;
 }
 
 // Canonical URL for a service (defaults to main location: /{service-slug}-{mainLocation-slug})
@@ -744,17 +755,18 @@ export function getServiceUrl(serviceSlug: string, locationSlug: string = mainLo
 }
 
 export function parseServiceLocationSlug(pathSlug: string): { service: ServiceDef; location: LocationDef } | null {
+  const clean = pathSlug.toLowerCase().trim().replace(/^\/+/, '').replace(/\/+$/, '');
   for (const l of locations) {
     // 1. Matches with state code, e.g. "water-heater-repair-and-installation-pearland-tx"
-    if (pathSlug.endsWith('-' + l.slug)) {
-      const serviceSlug = pathSlug.slice(0, -(l.slug.length + 1));
+    if (clean.endsWith('-' + l.slug)) {
+      const serviceSlug = clean.slice(0, -(l.slug.length + 1));
       const svc = getService(serviceSlug);
       if (svc) return { service: svc, location: l };
     }
     // 2. Matches without state code, e.g. "water-heater-repair-and-installation-pearland"
     const baseSlug = l.slug.replace(/-tx$/, '');
-    if (pathSlug.endsWith('-' + baseSlug)) {
-      const serviceSlug = pathSlug.slice(0, -(baseSlug.length + 1));
+    if (clean.endsWith('-' + baseSlug)) {
+      const serviceSlug = clean.slice(0, -(baseSlug.length + 1));
       const svc = getService(serviceSlug);
       if (svc) return { service: svc, location: l };
     }
