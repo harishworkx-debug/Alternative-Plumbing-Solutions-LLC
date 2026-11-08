@@ -55,3 +55,4 @@ export default function DynamicPage() {
   // 5. Unrecognized URL
   return <NotFoundPage />;
 }
+
