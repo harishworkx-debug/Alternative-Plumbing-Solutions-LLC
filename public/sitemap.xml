@@ -495,6 +495,110 @@
     <priority>0.7</priority>
   </url>
 
+  <!-- Pipe Repair & Whole-Home Repiping Across 10 Locations -->
+  <url>
+    <loc>https://www.alternativeplumbingsolutions.com/pipe-repair-and-repiping-pearland-tx</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.alternativeplumbingsolutions.com/pipe-repair-and-repiping-friendswood-tx</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.alternativeplumbingsolutions.com/pipe-repair-and-repiping-houston-tx</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.alternativeplumbingsolutions.com/pipe-repair-and-repiping-alvin-tx</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.alternativeplumbingsolutions.com/pipe-repair-and-repiping-manvel-tx</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.alternativeplumbingsolutions.com/pipe-repair-and-repiping-league-city-tx</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.alternativeplumbingsolutions.com/pipe-repair-and-repiping-pasadena-tx</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.alternativeplumbingsolutions.com/pipe-repair-and-repiping-webster-tx</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.alternativeplumbingsolutions.com/pipe-repair-and-repiping-clear-lake-tx</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.alternativeplumbingsolutions.com/pipe-repair-and-repiping-sugar-land-tx</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Toilet Repair & Installation Across 10 Locations -->
+  <url>
+    <loc>https://www.alternativeplumbingsolutions.com/toilet-repair-and-installation-pearland-tx</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.alternativeplumbingsolutions.com/toilet-repair-and-installation-friendswood-tx</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.alternativeplumbingsolutions.com/toilet-repair-and-installation-houston-tx</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.alternativeplumbingsolutions.com/toilet-repair-and-installation-alvin-tx</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.alternativeplumbingsolutions.com/toilet-repair-and-installation-manvel-tx</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.alternativeplumbingsolutions.com/toilet-repair-and-installation-league-city-tx</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.alternativeplumbingsolutions.com/toilet-repair-and-installation-pasadena-tx</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.alternativeplumbingsolutions.com/toilet-repair-and-installation-webster-tx</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.alternativeplumbingsolutions.com/toilet-repair-and-installation-clear-lake-tx</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.alternativeplumbingsolutions.com/toilet-repair-and-installation-sugar-land-tx</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
   <!-- Legal Pages -->
   <url>
     <loc>https://www.alternativeplumbingsolutions.com/privacy-policy</loc>

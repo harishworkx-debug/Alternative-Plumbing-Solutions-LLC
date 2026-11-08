@@ -362,6 +362,84 @@ export const services: ServiceDef[] = [
       },
     ],
   },
+  {
+    slug: 'pipe-repair-and-repiping',
+    name: 'Pipe Repair & Whole-Home Repiping',
+    shortName: 'Pipe Repair & Repiping',
+    icon: 'Wrench',
+    summary:
+      'Emergency pipe repair, burst freeze recovery, and full home repiping using durable PEX and copper for homes and businesses in Pearland & Greater Houston.',
+    description:
+      'Whether you are dealing with burst pipes after a winter freeze, persistent leaks inside walls, or low water pressure from aging galvanized or cast iron lines, Alternative Plumbing Solutions provides dependable pipe repairs and complete whole-home repiping. We isolate problem sections quickly and install clean, high-performance piping built to last.',
+    image:
+      'https://images.pexels.com/photos/6419128/pexels-photo-6419128.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
+    problems: [
+      'Pipes burst or cracked due to hard freezes or shifting foundations',
+      'Pinhole leaks causing water stains on drywall or ceilings',
+      'Low water pressure throughout the entire house',
+      'Discolored, brownish, or metallic-tasting tap water',
+      'Old, corroding galvanized steel or polybutylene plumbing lines',
+    ],
+    process: [
+      'Call us right away — we walk you through shutting off your main valve to minimize property damage.',
+      'Our licensed plumbers locate the leak or evaluate your existing pipe system.',
+      'You receive an honest recommendation: spot repair, section replacement, or full repipe.',
+      'We complete the installation cleanly, test water pressure, and verify no leaks remain.',
+    ],
+    faqs: [
+      {
+        q: 'What should I do if a pipe bursts in my home?',
+        a: 'Immediately turn off your main water shutoff valve to stop incoming water, open faucets to relieve residual pressure, and call Alternative Plumbing Solutions at (713) 501-1214 for emergency repair.',
+      },
+      {
+        q: 'When does a house need a full repipe instead of a repair?',
+        a: 'If your home has original galvanized pipes that are rusting from the inside, polybutylene piping prone to failure, or if you have suffered multiple leaks in different locations, a whole-house repipe is much more reliable and cost-effective.',
+      },
+      {
+        q: 'Do you use PEX piping for repipes?',
+        a: 'Yes. Modern PEX-a piping is flexible, highly freeze-resistant, corrosion-proof, and can be installed with minimal drywall disruption.',
+      },
+    ],
+  },
+  {
+    slug: 'toilet-repair-and-installation',
+    name: 'Toilet Repair & Installation',
+    shortName: 'Toilet Services',
+    icon: 'Bath',
+    summary:
+      'Professional toilet repair, unclogging, wax ring replacement, and high-efficiency toilet installation throughout Pearland and Greater Houston.',
+    description:
+      'From constantly running toilets and weak flushes to leaking bases and complete fixture replacements, Alternative Plumbing Solutions provides dependable toilet services. Whether you need an emergency repair or want to upgrade to a modern water-saving toilet, our team ensures proper seal, secure mounting, and smooth drainage.',
+    image:
+      'https://images.pexels.com/photos/1454806/pexels-photo-1454806.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
+    problems: [
+      'Toilet running continuously, wasting water and raising utility bills',
+      'Water pooling around the base of the toilet from a broken wax ring',
+      'Weak, incomplete, or sluggish flushes',
+      'Cracked porcelain tank or bowl',
+      'Stubborn clogs that standard plunging cannot clear',
+    ],
+    process: [
+      'Describe the symptoms over the phone so we can arrive prepared with the right parts or replacement units.',
+      'We inspect the fill valve, flapper, wax seal, closet bolts, and drain line.',
+      'We provide transparent pricing before starting any repair or replacement.',
+      'We complete the job, test multiple flushes, check the seal, and leave your bathroom clean.',
+    ],
+    faqs: [
+      {
+        q: 'Why does my toilet keep running continuously?',
+        a: 'A running toilet is usually caused by a faulty flapper that no longer seals, an improperly adjusted float, or a failing fill valve. We can repair or replace the internal components quickly.',
+      },
+      {
+        q: 'What causes water to pool around the bottom of the toilet?',
+        a: 'Water leaking around the base almost always indicates that the wax ring seal between the toilet horn and the floor flange has broken or degraded. The toilet must be pulled, flange inspected, and resealed with a new wax ring.',
+      },
+      {
+        q: 'Can I provide my own toilet for you to install?',
+        a: 'Yes. If you have purchased a toilet from a retailer, we can install, level, bolt down, and connect it with new supply lines and seals.',
+      },
+    ],
+  },
 ];
 
 // Verified service areas — sourced from official business description ("Pearland, Friendswood,

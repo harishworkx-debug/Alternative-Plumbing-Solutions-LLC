@@ -116,7 +116,12 @@ export default function Header() {
             >
               <button
                 className={`flex items-center gap-1 text-sm font-medium transition-colors ${
-                  location.pathname.startsWith('/services') || location.pathname.match(/-(pearland|friendswood|houston)(-tx)?$/)
+                  location.pathname.startsWith('/services') ||
+                  locations.some(
+                    (l) =>
+                      location.pathname.endsWith(`-${l.slug}`) ||
+                      location.pathname.endsWith(`-${l.slug.replace(/-tx$/, '')}`)
+                  )
                     ? 'text-aqua-600'
                     : 'text-navy-700 hover:text-aqua-600'
                 }`}
@@ -126,24 +131,24 @@ export default function Header() {
                 Services <ChevronDown className={`h-4 w-4 transition-transform ${servicesOpen ? 'rotate-180' : ''}`} />
               </button>
               {servicesOpen && (
-                <div className="absolute left-1/2 top-full z-50 w-[36rem] -translate-x-1/2 pt-3 animate-slide-down">
+                <div className="absolute left-1/2 top-full z-50 w-80 -translate-x-1/2 pt-3 animate-slide-down">
                   <div className="overflow-hidden rounded-2xl border border-navy-100 bg-white p-3 shadow-2xl shadow-navy-900/15">
                     <Link
                       to="/services"
                       className="flex items-center justify-between rounded-xl bg-navy-50 px-4 py-3 font-semibold text-navy-800 transition-colors hover:bg-navy-100"
                     >
-                      All Plumbing Services
+                      All 10 Plumbing Services
                       <ArrowRight className="h-4 w-4 text-aqua-600" />
                     </Link>
-                    <div className="mt-2 grid grid-cols-2 gap-1">
+                    <div className="mt-2 flex flex-col space-y-0.5 max-h-[30rem] overflow-y-auto">
                       {services.map((s) => (
                         <Link
                           key={s.slug}
                           to={getServiceUrl(s.slug)}
-                          className="group flex items-center gap-2.5 rounded-lg px-3 py-2.5 text-sm text-navy-700 transition-colors hover:bg-aqua-50 hover:text-navy-900"
+                          className="group flex items-center gap-2.5 rounded-lg px-3 py-2 text-sm text-navy-700 transition-colors hover:bg-aqua-50 hover:text-navy-900"
                         >
                           <ServiceIcon name={s.icon} className="h-4 w-4 flex-shrink-0 text-aqua-500" />
-                          <span>{s.shortName}</span>
+                          <span className="font-medium">{s.name}</span>
                         </Link>
                       ))}
                     </div>
@@ -174,7 +179,7 @@ export default function Header() {
                 Service Areas <ChevronDown className={`h-4 w-4 transition-transform ${areasOpen ? 'rotate-180' : ''}`} />
               </button>
               {areasOpen && (
-                <div className="absolute left-1/2 top-full z-50 w-[34rem] -translate-x-1/2 pt-3 animate-slide-down">
+                <div className="absolute left-1/2 top-full z-50 w-80 -translate-x-1/2 pt-3 animate-slide-down">
                   <div className="overflow-hidden rounded-2xl border border-navy-100 bg-white p-3 shadow-2xl shadow-navy-900/15">
                     <Link
                       to="/service-areas"
@@ -183,18 +188,18 @@ export default function Header() {
                       All 10 Service Areas
                       <ArrowRight className="h-4 w-4 text-aqua-600" />
                     </Link>
-                    <div className="mt-2 grid grid-cols-2 gap-1">
+                    <div className="mt-2 flex flex-col space-y-0.5 max-h-[30rem] overflow-y-auto">
                       {locations.map((l) => (
                         <Link
                           key={l.slug}
                           to={getLocationUrl(l.slug)}
                           className="group flex items-center justify-between rounded-lg px-3 py-2 text-sm text-navy-700 transition-colors hover:bg-aqua-50 hover:text-navy-900"
                         >
-                          <span className="flex items-center gap-2">
+                          <span className="flex items-center gap-2.5">
                             <MapPin className="h-4 w-4 flex-shrink-0 text-aqua-500" />
-                            <span>{l.city}, {l.state}</span>
+                            <span className="font-medium">{l.city}, {l.state}</span>
                           </span>
-                          <span className="text-xs text-navy-400">{l.county.replace(' County', '')}</span>
+                          <span className="text-xs text-navy-400 group-hover:text-aqua-700">{l.county.replace(' County', '')}</span>
                         </Link>
                       ))}
                     </div>
