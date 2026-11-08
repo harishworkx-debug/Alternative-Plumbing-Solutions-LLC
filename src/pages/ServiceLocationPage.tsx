@@ -13,7 +13,8 @@ import {
 } from '@/data/business';
 
 export default function ServiceLocationPage() {
-  const { serviceLocationSlug: pathSlug } = useParams();
+  const { serviceLocationSlug, slug } = useParams();
+  const pathSlug = serviceLocationSlug || slug;
 
   // If path is just a service slug without location, redirect to main location page
   if (pathSlug) {

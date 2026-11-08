@@ -11,9 +11,10 @@ import {
 } from '@/data/business';
 
 export default function ServiceAreaDetailPage() {
-  const { locationSlug } = useParams();
+  const { locationSlug, slug } = useParams();
   const currentPath = useLocation().pathname;
-  const location = locationSlug ? findLocation(locationSlug) : null;
+  const rawParam = locationSlug || slug;
+  const location = rawParam ? findLocation(rawParam) : null;
 
   if (!location) return <Navigate to="/404" replace />;
 
