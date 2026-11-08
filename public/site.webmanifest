@@ -1,0 +1,21 @@
+{
+  "name": "Alternative Plumbing Solutions, LLC",
+  "short_name": "Alt Plumbing",
+  "description": "Trusted plumber in Pearland, TX serving Greater Houston. Water heaters, drains, sewer lines, gas piping, and more.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0f1a3a",
+  "theme_color": "#0f1a3a",
+  "icons": [
+    {
+      "src": "/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
