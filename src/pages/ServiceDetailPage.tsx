@@ -45,7 +45,7 @@ export default function ServiceDetailPage() {
 
       <PageHero
         eyebrow="Plumbing Service"
-        title={service.name}
+        title={`${service.name} in Pearland & Greater Houston`}
         description={service.summary}
         breadcrumbs={[
           { name: 'Home', path: '/' },
@@ -73,7 +73,7 @@ export default function ServiceDetailPage() {
             </div>
 
             <div className="prose-plumbing mt-8 max-w-none">
-              <h2>About Our {service.name} Service</h2>
+              <h2>About Our {service.name} Service in Pearland &amp; Greater Houston</h2>
               <p>{service.description}</p>
 
               <h2>Common {service.shortName} Problems</h2>
