@@ -5,7 +5,7 @@ import PageHero from '@/components/PageHero';
 import CtaSection from '@/components/CtaSection';
 import CallButton from '@/components/CallButton';
 import { ServiceIcon } from '@/components/ServiceIcon';
-import { services, locations } from '@/data/business';
+import { services, locations, getServiceUrl, getLocationUrl } from '@/data/business';
 
 const heroImage =
   'https://images.pexels.com/photos/12105083/pexels-photo-12105083.jpeg?auto=compress&cs=tinysrgb&h=900&w=1600';
@@ -47,7 +47,7 @@ export default function ServicesIndexPage() {
             {services.map((s) => (
               <Link
                 key={s.slug}
-                to={`/services/${s.slug}`}
+                to={getServiceUrl(s.slug)}
                 className="group flex flex-col overflow-hidden rounded-2xl border border-navy-100 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl hover:shadow-navy-900/10"
               >
                 <div className="relative h-48 overflow-hidden">
@@ -88,7 +88,7 @@ export default function ServicesIndexPage() {
                 {locations.map((l) => (
                   <Link
                     key={l.slug}
-                    to={`/service-areas/${l.slug}`}
+                    to={getLocationUrl(l.slug)}
                     className="btn-ghost"
                   >
                     {l.city}, {l.state}

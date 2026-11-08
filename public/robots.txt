@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 
 # Sitemap
-Sitemap: https://alternativeplumbingsolutions.com/sitemap.xml
+Sitemap: https://www.alternativeplumbingsolutions.com/sitemap.xml

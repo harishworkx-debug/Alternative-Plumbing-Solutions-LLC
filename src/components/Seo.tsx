@@ -105,10 +105,24 @@ export const localBusinessSchema = {
     latitude: business.address.geo.lat,
     longitude: business.address.geo.lng,
   },
+  aggregateRating: {
+    '@type': 'AggregateRating',
+    ratingValue: '4.0',
+    reviewCount: '48',
+    bestRating: '5',
+    worstRating: '1',
+  },
   areaServed: [
     { '@type': 'City', name: 'Pearland, TX' },
     { '@type': 'City', name: 'Friendswood, TX' },
     { '@type': 'City', name: 'Houston, TX' },
+    { '@type': 'City', name: 'Alvin, TX' },
+    { '@type': 'City', name: 'Manvel, TX' },
+    { '@type': 'City', name: 'League City, TX' },
+    { '@type': 'City', name: 'Pasadena, TX' },
+    { '@type': 'City', name: 'Webster, TX' },
+    { '@type': 'City', name: 'Clear Lake, TX' },
+    { '@type': 'City', name: 'Sugar Land, TX' },
   ],
   openingHoursSpecification: [
     {

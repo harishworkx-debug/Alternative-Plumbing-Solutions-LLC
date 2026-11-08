@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { Link, NavLink, useLocation } from 'react-router-dom';
 import { ChevronDown, Menu, Phone, X, Droplet, ArrowRight, MapPin } from 'lucide-react';
-import { business, services, locations } from '@/data/business';
+import { business, services, locations, getServiceUrl, getLocationUrl } from '@/data/business';
 import CallButton from './CallButton';
 import { ServiceIcon } from './ServiceIcon';
 
@@ -116,7 +116,7 @@ export default function Header() {
             >
               <button
                 className={`flex items-center gap-1 text-sm font-medium transition-colors ${
-                  location.pathname.startsWith('/services') || location.pathname.match(/-(pearland|friendswood|houston)-tx$/)
+                  location.pathname.startsWith('/services') || location.pathname.match(/-(pearland|friendswood|houston)(-tx)?$/)
                     ? 'text-aqua-600'
                     : 'text-navy-700 hover:text-aqua-600'
                 }`}
@@ -139,7 +139,7 @@ export default function Header() {
                       {services.map((s) => (
                         <Link
                           key={s.slug}
-                          to={`/services/${s.slug}`}
+                          to={getServiceUrl(s.slug)}
                           className="group flex items-center gap-2.5 rounded-lg px-3 py-2.5 text-sm text-navy-700 transition-colors hover:bg-aqua-50 hover:text-navy-900"
                         >
                           <ServiceIcon name={s.icon} className="h-4 w-4 flex-shrink-0 text-aqua-500" />
@@ -164,7 +164,7 @@ export default function Header() {
             >
               <button
                 className={`flex items-center gap-1 text-sm font-medium transition-colors ${
-                  location.pathname.startsWith('/service-areas')
+                  location.pathname.startsWith('/service-areas') || location.pathname.startsWith('/plumber-')
                     ? 'text-aqua-600'
                     : 'text-navy-700 hover:text-aqua-600'
                 }`}
@@ -174,25 +174,27 @@ export default function Header() {
                 Service Areas <ChevronDown className={`h-4 w-4 transition-transform ${areasOpen ? 'rotate-180' : ''}`} />
               </button>
               {areasOpen && (
-                <div className="absolute left-1/2 top-full z-50 w-72 -translate-x-1/2 pt-3 animate-slide-down">
+                <div className="absolute left-1/2 top-full z-50 w-[34rem] -translate-x-1/2 pt-3 animate-slide-down">
                   <div className="overflow-hidden rounded-2xl border border-navy-100 bg-white p-3 shadow-2xl shadow-navy-900/15">
                     <Link
                       to="/service-areas"
                       className="flex items-center justify-between rounded-xl bg-navy-50 px-4 py-3 font-semibold text-navy-800 transition-colors hover:bg-navy-100"
                     >
-                      All Service Areas
+                      All 10 Service Areas
                       <ArrowRight className="h-4 w-4 text-aqua-600" />
                     </Link>
-                    <div className="mt-2 space-y-1">
+                    <div className="mt-2 grid grid-cols-2 gap-1">
                       {locations.map((l) => (
                         <Link
                           key={l.slug}
-                          to={`/service-areas/${l.slug}`}
-                          className="group flex items-center gap-2.5 rounded-lg px-3 py-2.5 text-sm text-navy-700 transition-colors hover:bg-aqua-50 hover:text-navy-900"
+                          to={getLocationUrl(l.slug)}
+                          className="group flex items-center justify-between rounded-lg px-3 py-2 text-sm text-navy-700 transition-colors hover:bg-aqua-50 hover:text-navy-900"
                         >
-                          <MapPin className="h-4 w-4 flex-shrink-0 text-aqua-500" />
-                          <span>{l.city}, {l.state}</span>
-                          <span className="ml-auto text-xs text-navy-400">{l.county}</span>
+                          <span className="flex items-center gap-2">
+                            <MapPin className="h-4 w-4 flex-shrink-0 text-aqua-500" />
+                            <span>{l.city}, {l.state}</span>
+                          </span>
+                          <span className="text-xs text-navy-400">{l.county.replace(' County', '')}</span>
                         </Link>
                       ))}
                     </div>
@@ -259,12 +261,12 @@ export default function Header() {
             <MobileLink to="/about" label="About" />
             <MobileGroup label="Plumbing Services" to="/services">
               {services.map((s) => (
-                <MobileLink key={s.slug} to={`/services/${s.slug}`} label={s.shortName} nested />
+                <MobileLink key={s.slug} to={getServiceUrl(s.slug)} label={s.shortName} nested />
               ))}
             </MobileGroup>
             <MobileGroup label="Service Areas" to="/service-areas">
               {locations.map((l) => (
-                <MobileLink key={l.slug} to={`/service-areas/${l.slug}`} label={`${l.city}, ${l.state}`} nested />
+                <MobileLink key={l.slug} to={getLocationUrl(l.slug)} label={`${l.city}, ${l.state}`} nested />
               ))}
             </MobileGroup>
             <MobileLink to="/contact" label="Contact" />

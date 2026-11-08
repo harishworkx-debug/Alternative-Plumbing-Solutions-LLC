@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { Droplet, Phone, MapPin, Clock, Mail, ExternalLink } from 'lucide-react';
-import { business, services, locations } from '@/data/business';
+import { business, services, locations, getServiceUrl, getLocationUrl } from '@/data/business';
 import CallButton from './CallButton';
 
 export default function Footer() {
@@ -60,7 +60,7 @@ export default function Footer() {
           <ul className="mt-4 space-y-2.5 text-sm">
             {services.map((s) => (
               <li key={s.slug}>
-                <Link to={`/services/${s.slug}`} className="text-navy-200 transition-colors hover:text-aqua-300">
+                <Link to={getServiceUrl(s.slug)} className="text-navy-200 transition-colors hover:text-aqua-300">
                   {s.shortName}
                 </Link>
               </li>
@@ -74,7 +74,7 @@ export default function Footer() {
           <ul className="mt-4 space-y-2.5 text-sm">
             {locations.map((l) => (
               <li key={l.slug}>
-                <Link to={`/service-areas/${l.slug}`} className="text-navy-200 transition-colors hover:text-aqua-300">
+                <Link to={getLocationUrl(l.slug)} className="text-navy-200 transition-colors hover:text-aqua-300">
                   {l.city}, {l.state}
                 </Link>
               </li>

@@ -9,11 +9,20 @@ import CtaSection from '@/components/CtaSection';
 import FaqList from '@/components/FaqList';
 import { ServiceIcon } from '@/components/ServiceIcon';
 import {
-  services, locations, parseServiceLocationSlug, serviceLocationSlug as buildServiceLocationSlug, business,
+  services, locations, getService, getServiceUrl, getLocationUrl, parseServiceLocationSlug, serviceLocationSlug as buildServiceLocationSlug, business,
 } from '@/data/business';
 
 export default function ServiceLocationPage() {
   const { serviceLocationSlug: pathSlug } = useParams();
+
+  // If path is just a service slug without location, redirect to main location page
+  if (pathSlug) {
+    const directService = getService(pathSlug);
+    if (directService) {
+      return <Navigate to={getServiceUrl(directService.slug)} replace />;
+    }
+  }
+
   const parsed = pathSlug ? parseServiceLocationSlug(pathSlug) : null;
 
   // If it doesn't match a service-location pattern, render 404
@@ -36,7 +45,7 @@ export default function ServiceLocationPage() {
     serviceSchema(service.name, `${service.description} Serving ${location.city}, ${location.state}.`, `/${pageSlug}`),
     breadcrumbSchema([
       { name: 'Home', path: '/' },
-      { name: service.shortName, path: `/services/${service.slug}` },
+      { name: 'All Services', path: '/services' },
       { name: `${service.shortName} in ${location.city}, ${location.state}`, path: `/${pageSlug}` },
     ]),
   ];
@@ -46,6 +55,8 @@ export default function ServiceLocationPage() {
 
   // Other services in this location
   const otherServices = services.filter((s) => s.slug !== service.slug).slice(0, 4);
+  // Other locations for this service
+  const otherLocations = locations.filter((l) => l.slug !== location.slug);
 
   return (
     <>
@@ -63,8 +74,8 @@ export default function ServiceLocationPage() {
         description={`${service.summary} Available in ${location.city} and the surrounding ${location.county} area — call us for fast, reliable service.`}
         breadcrumbs={[
           { name: 'Home', path: '/' },
-          { name: service.shortName, path: `/services/${service.slug}` },
-          { name: `${location.city}, ${location.state}` },
+          { name: 'Services', path: '/services' },
+          { name: `${service.shortName} in ${location.city}` },
         ]}
         image={service.image}
       >
@@ -179,12 +190,36 @@ export default function ServiceLocationPage() {
                 </ul>
               </div>
 
+              {otherLocations.length > 0 && (
+                <div className="rounded-2xl border border-navy-100 bg-white p-6 shadow-sm">
+                  <h3 className="font-display text-base font-semibold text-navy-900">
+                    {service.shortName} in Other Areas
+                  </h3>
+                  <ul className="mt-4 space-y-3">
+                    {otherLocations.map((l) => (
+                      <li key={l.slug}>
+                        <Link
+                          to={`/${buildServiceLocationSlug(service.slug, l.slug)}`}
+                          className="group flex items-center justify-between gap-2 text-sm text-navy-700 hover:text-aqua-600"
+                        >
+                          <span className="flex items-center gap-2.5">
+                            <MapPin className="h-4 w-4 text-aqua-500" />
+                            {service.shortName} in {l.city}
+                          </span>
+                          <ArrowRight className="h-4 w-4 text-navy-300 transition-transform group-hover:translate-x-1" />
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+
               <div className="rounded-2xl bg-navy-50 p-6">
                 <h3 className="font-display text-base font-semibold text-navy-900">
                   All {location.city} Services
                 </h3>
                 <Link
-                  to={`/service-areas/${location.slug}`}
+                  to={getLocationUrl(location.slug)}
                   className="mt-3 inline-flex items-center gap-1.5 text-sm font-semibold text-aqua-600 hover:text-aqua-700"
                 >
                   <MapPin className="h-4 w-4" />

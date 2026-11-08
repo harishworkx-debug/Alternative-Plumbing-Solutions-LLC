@@ -13,7 +13,7 @@ export const business = {
   altPhone: '(281) 819-7277',
   altPhoneTel: '+12818197277',
   email: 'cminhtown@gmail.com',
-  website: 'https://alternativeplumbingsolutions.com',
+  website: 'https://www.alternativeplumbingsolutions.com',
   address: {
     street: '2911 Piccadilly Circus',
     city: 'Pearland',
@@ -449,15 +449,181 @@ export const locations: LocationDef[] = [
       },
     ],
   },
+  {
+    slug: 'alvin-tx',
+    city: 'Alvin',
+    state: 'TX',
+    county: 'Brazoria County',
+    intro:
+      'Alternative Plumbing Solutions proudly serves homeowners and commercial property owners across Alvin, Texas. Located just south of our Pearland headquarters, Alvin is a thriving community where dependable, straightforward plumbing services are always just a quick call away.',
+    localInfo:
+      'Alvin features a diverse mix of historic homes, ranch properties, and newer residential subdivisions. Shifting coastal prairie soils often lead to foundation movement and underground pipe strain, while older pipe materials in established neighborhoods require experienced sewer and water line repairs.',
+    faqs: [
+      {
+        q: 'Do you provide plumbing services in Alvin, TX?',
+        a: 'Yes. Alvin is an essential part of our core service area. Being based in nearby Pearland, we can dispatch plumbers quickly for repairs, installations, and maintenance.',
+      },
+      {
+        q: 'Can you handle water heater replacement in Alvin?',
+        a: 'Yes. We install and repair both traditional tank water heaters and high-efficiency tankless models for homes and businesses throughout Alvin.',
+      },
+      {
+        q: 'Do you offer drain and sewer cleaning in Alvin?',
+        a: 'Yes. Our team provides camera inspections and drain cleaning for stubborn clogs, root intrusions, and line backups across Alvin.',
+      },
+    ],
+  },
+  {
+    slug: 'manvel-tx',
+    city: 'Manvel',
+    state: 'TX',
+    county: 'Brazoria County',
+    intro:
+      'Alternative Plumbing Solutions delivers full-service residential and commercial plumbing to Manvel, Texas. As one of Brazoria County\'s fastest-growing communities right next door to Pearland, Manvel property owners rely on our licensed team for everything from water heater installs to new construction plumbing.',
+    localInfo:
+      'With rapid residential growth and new master-planned developments throughout Manvel, homeowners frequently require fixture upgrades, water filtration, tankless water heater conversions, and gas line additions for generators and outdoor kitchens.',
+    faqs: [
+      {
+        q: 'How fast can a plumber arrive in Manvel?',
+        a: 'Because our shop is in neighboring Pearland, we can reach homes and commercial jobs in Manvel in just minutes.',
+      },
+      {
+        q: 'Do you do plumbing for new construction in Manvel?',
+        a: 'Yes. We specialize in ground-up residential and commercial plumbing installation for new homes, additions, and commercial build-outs in Manvel.',
+      },
+      {
+        q: 'Can you inspect sewer lines in new or older Manvel homes?',
+        a: 'Yes. Our HD camera inspections identify cracked pipes, shifting lines, and root damage without damaging your lawn or foundation.',
+      },
+    ],
+  },
+  {
+    slug: 'league-city-tx',
+    city: 'League City',
+    state: 'TX',
+    county: 'Galveston County',
+    intro:
+      'Alternative Plumbing Solutions provides trusted plumbing solutions across League City, Texas. Serving the Bay Area with transparent pricing and top-tier workmanship, we help League City families and businesses resolve plumbing issues efficiently.',
+    localInfo:
+      'League City\'s coastal climate and proximity to Clear Lake make corrosion resistance and proper water heater maintenance vital. Many homes in the area benefit from tankless upgrades, sewer line camera evaluations, and prompt slab leak detection.',
+    faqs: [
+      {
+        q: 'Do you service residential properties in League City?',
+        a: 'Yes. We serve neighborhoods across League City, from South Shore Harbour to Victory Lakes and older historic districts.',
+      },
+      {
+        q: 'What should I do if my water heater leaks in League City?',
+        a: 'Shut off the water intake and call us immediately at (713) 501-1214. We offer same-day diagnosis and replacement options.',
+      },
+      {
+        q: 'Do you work with tankless water heaters in League City?',
+        a: 'Yes. We install, flush, and service all major brands of tankless water heaters suited for high-demand coastal households.',
+      },
+    ],
+  },
+  {
+    slug: 'pasadena-tx',
+    city: 'Pasadena',
+    state: 'TX',
+    county: 'Harris County',
+    intro:
+      'Alternative Plumbing Solutions delivers reliable residential and light commercial plumbing services to Pasadena, Texas. Conveniently located just north of Pearland, our team brings dependable repairs, honest estimates, and quality craftsmanship to Pasadena properties.',
+    localInfo:
+      'Pasadena includes established residential subdivisions alongside thriving commercial corridors. Cast iron pipe decay, aging galvanized supply lines, and stubborn sewer line clogs are common challenges that our diagnostic tools and repiping expertise solve.',
+    faqs: [
+      {
+        q: 'Do you handle older home plumbing repairs in Pasadena?',
+        a: 'Yes. We frequently repair and repipe older Pasadena residences dealing with low water pressure, rust, or failing sewer pipes.',
+      },
+      {
+        q: 'Are commercial plumbing services available in Pasadena?',
+        a: 'Yes. We support Pasadena businesses with commercial drain cleaning, gas piping, fixture replacements, and routine maintenance.',
+      },
+      {
+        q: 'Can you locate hidden leaks under foundations in Pasadena?',
+        a: 'Yes. Our non-invasive electronic leak detection pinpoints slab leaks quickly to minimize property disruption.',
+      },
+    ],
+  },
+  {
+    slug: 'webster-tx',
+    city: 'Webster',
+    state: 'TX',
+    county: 'Harris County',
+    intro:
+      'Alternative Plumbing Solutions provides premier plumbing services to Webster, Texas. Situated in the heart of the Clear Lake medical and commercial hub, Webster homeowners and business operators count on us for fast, professional plumbing repairs and replacements.',
+    localInfo:
+      'Webster\'s bustling commercial centers, medical complexes, and residential developments require responsive plumbing support. We specialize in high-capacity water heating, preventative drain cleaning, and precision gas pipe installations.',
+    faqs: [
+      {
+        q: 'Do you provide same-day plumbing service in Webster?',
+        a: 'Yes. Whenever possible we offer same-day scheduling for urgent water heater failures, leaks, and sewer clogs in Webster.',
+      },
+      {
+        q: 'Can you install gas lines for generators and appliances in Webster?',
+        a: 'Yes. We are certified for gas piping and sizing for whole-home generators, gas ranges, and commercial equipment.',
+      },
+      {
+        q: 'What plumbing warranties do you offer in Webster?',
+        a: 'All of our repairs and installations come backed by our workmanship guarantee and manufacturer warranties on installed parts.',
+      },
+    ],
+  },
+  {
+    slug: 'clear-lake-tx',
+    city: 'Clear Lake',
+    state: 'TX',
+    county: 'Harris County',
+    intro:
+      'Alternative Plumbing Solutions provides comprehensive plumbing care to Clear Lake, Texas and the Bay Area. From water heater installations to sewer line inspections, we deliver courteous, dependable plumbing for Clear Lake homeowners.',
+    localInfo:
+      'Clear Lake\'s coastal conditions and mature tree-lined neighborhoods frequently encounter tree root intrusions in sewer mains and mineral buildup in water heaters. Our video inspections and descaling services keep lines flowing smoothly.',
+    faqs: [
+      {
+        q: 'Do you service homes in the Clear Lake Houston area?',
+        a: 'Yes. We cover Clear Lake City, Bay Forest, Bay Knoll, and surrounding communities with full plumbing repair and replacement.',
+      },
+      {
+        q: 'How do I know if tree roots are in my Clear Lake sewer line?',
+        a: 'Slow drains, gurgling toilets, or repeated backups are classic signs. We run a camera down the cleanout to verify and clear the blockage.',
+      },
+      {
+        q: 'Can you replace traditional water heaters with tankless in Clear Lake?',
+        a: 'Yes. We evaluate your electrical and gas capacity and install high-efficiency tankless units for endless hot water.',
+      },
+    ],
+  },
+  {
+    slug: 'sugar-land-tx',
+    city: 'Sugar Land',
+    state: 'TX',
+    county: 'Fort Bend County',
+    intro:
+      'Alternative Plumbing Solutions extends our trusted plumbing expertise to Sugar Land, Texas. Homeowners and commercial facility managers in Sugar Land depend on our experienced plumbers for clean, efficient, and cost-effective plumbing repairs.',
+    localInfo:
+      'Sugar Land properties demand high-efficiency water heating solutions, whole-home repiping, and accurate leak detection to protect upscale finishes and foundations from water damage.',
+    faqs: [
+      {
+        q: 'Do you provide plumbing services in Sugar Land?',
+        a: 'Yes. We dispatch to Sugar Land for water heater replacements, leak detection, sewer repairs, and general plumbing needs.',
+      },
+      {
+        q: 'Can you detect slab leaks in Sugar Land homes?',
+        a: 'Yes. We use advanced acoustic and thermal detection to locate slab leaks accurately without unnecessary floor demolition.',
+      },
+      {
+        q: 'Do you install water filtration and softening systems in Sugar Land?',
+        a: 'Yes. We install whole-home water treatment systems to protect your fixtures and pipes from hard water buildup.',
+      },
+    ],
+  },
 ];
 
 // Which services are offered in which locations. All listed services are offered across
-// the full verified service area.
-export const serviceInLocation: Record<string, string[]> = {
-  'pearland-tx': services.map((s) => s.slug),
-  'friendswood-tx': services.map((s) => s.slug),
-  'houston-tx': services.map((s) => s.slug),
-};
+// all 10 verified service areas.
+export const serviceInLocation: Record<string, string[]> = Object.fromEntries(
+  locations.map((l) => [l.slug, services.map((s) => s.slug)])
+);
 
 export function getService(slug: string): ServiceDef | undefined {
   return services.find((s) => s.slug === slug);
@@ -467,15 +633,50 @@ export function getLocation(slug: string): LocationDef | undefined {
   return locations.find((l) => l.slug === slug);
 }
 
+// The primary / headquarters location for Alternative Plumbing Solutions
+export const mainLocation = locations[0];
+
+// Canonical URL for a service area landing page: /plumber-{locationSlug}
+export function getLocationUrl(locationSlug: string): string {
+  if (locationSlug.startsWith('plumber-')) return `/${locationSlug}`;
+  return `/plumber-${locationSlug}`;
+}
+
+// Find location by slug, with or without state code or plumber- prefix
+export function findLocation(slugOrCity: string): LocationDef | undefined {
+  const normalized = slugOrCity.toLowerCase().trim().replace(/^plumber-/, '');
+  return locations.find(
+    (l) =>
+      l.slug === normalized ||
+      l.slug === `${normalized}-tx` ||
+      l.slug.replace(/-tx$/, '') === normalized ||
+      l.city.toLowerCase() === normalized ||
+      l.city.toLowerCase().replace(/\s+/g, '-') === normalized
+  );
+}
+
 // Combined service-location landing page slugs: {service-slug}-{location-slug}
-export function serviceLocationSlug(serviceSlug: string, locationSlug: string): string {
+export function serviceLocationSlug(serviceSlug: string, locationSlug: string = mainLocation.slug): string {
   return `${serviceSlug}-${locationSlug}`;
+}
+
+// Canonical URL for a service (defaults to main location: /{service-slug}-{mainLocation-slug})
+export function getServiceUrl(serviceSlug: string, locationSlug: string = mainLocation.slug): string {
+  return `/${serviceLocationSlug(serviceSlug, locationSlug)}`;
 }
 
 export function parseServiceLocationSlug(pathSlug: string): { service: ServiceDef; location: LocationDef } | null {
   for (const l of locations) {
+    // 1. Matches with state code, e.g. "water-heater-repair-and-installation-pearland-tx"
     if (pathSlug.endsWith('-' + l.slug)) {
       const serviceSlug = pathSlug.slice(0, -(l.slug.length + 1));
+      const svc = getService(serviceSlug);
+      if (svc) return { service: svc, location: l };
+    }
+    // 2. Matches without state code, e.g. "water-heater-repair-and-installation-pearland"
+    const baseSlug = l.slug.replace(/-tx$/, '');
+    if (pathSlug.endsWith('-' + baseSlug)) {
+      const serviceSlug = pathSlug.slice(0, -(baseSlug.length + 1));
       const svc = getService(serviceSlug);
       if (svc) return { service: svc, location: l };
     }

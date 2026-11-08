@@ -4,7 +4,7 @@ import Seo, { breadcrumbSchema, localBusinessSchema } from '@/components/Seo';
 import PageHero from '@/components/PageHero';
 import CtaSection from '@/components/CtaSection';
 import CallButton from '@/components/CallButton';
-import { locations, services, serviceInLocation, serviceLocationSlug } from '@/data/business';
+import { locations, services, serviceInLocation, serviceLocationSlug, getLocationUrl } from '@/data/business';
 
 const heroImage =
   'https://images.pexels.com/photos/7710011/pexels-photo-7710011.jpeg?auto=compress&cs=tinysrgb&h=900&w=1600';
@@ -42,13 +42,13 @@ export default function ServiceAreasIndexPage() {
 
       <section className="py-20 lg:py-28">
         <div className="container-base">
-          <div className="grid gap-6 lg:grid-cols-3">
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {locations.map((l) => (
               <div
                 key={l.slug}
                 className="flex flex-col overflow-hidden rounded-2xl border border-navy-100 bg-white shadow-sm transition-all duration-300 hover:shadow-xl hover:shadow-navy-900/10 hover:-translate-y-1"
               >
-                <Link to={`/service-areas/${l.slug}`} className="relative block h-44 overflow-hidden bg-navy-900">
+                <Link to={getLocationUrl(l.slug)} className="relative block h-44 overflow-hidden bg-navy-900">
                   <div className="absolute inset-0 bg-grid opacity-30" />
                   <div className="absolute -right-8 -top-8 h-32 w-32 rounded-full bg-aqua-500/20 blur-2xl" />
                   <div className="absolute inset-0 flex flex-col items-center justify-center p-6 text-center">
@@ -60,7 +60,7 @@ export default function ServiceAreasIndexPage() {
                 <div className="flex flex-1 flex-col p-6">
                   <p className="text-sm text-navy-600 leading-relaxed">{l.intro.slice(0, 120)}…</p>
                   <Link
-                    to={`/service-areas/${l.slug}`}
+                    to={getLocationUrl(l.slug)}
                     className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-aqua-600 hover:text-aqua-700"
                   >
                     View {l.city} Services

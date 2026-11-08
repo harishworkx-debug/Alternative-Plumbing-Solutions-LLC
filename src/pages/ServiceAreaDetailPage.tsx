@@ -1,4 +1,4 @@
-import { useParams, Link, Navigate } from 'react-router-dom';
+import { useParams, useLocation, Link, Navigate } from 'react-router-dom';
 import { ArrowRight, MapPin, Phone, Clock, Building2 } from 'lucide-react';
 import Seo, { breadcrumbSchema, localBusinessSchema } from '@/components/Seo';
 import PageHero from '@/components/PageHero';
@@ -7,14 +7,22 @@ import CtaSection from '@/components/CtaSection';
 import FaqList from '@/components/FaqList';
 import { ServiceIcon } from '@/components/ServiceIcon';
 import {
-  locations, services, serviceInLocation, serviceLocationSlug, business,
+  locations, services, serviceInLocation, serviceLocationSlug, business, findLocation, getLocationUrl,
 } from '@/data/business';
 
 export default function ServiceAreaDetailPage() {
   const { locationSlug } = useParams();
-  const location = locations.find((l) => l.slug === locationSlug);
+  const currentPath = useLocation().pathname;
+  const location = locationSlug ? findLocation(locationSlug) : null;
 
   if (!location) return <Navigate to="/404" replace />;
+
+  const canonicalUrl = getLocationUrl(location.slug);
+
+  // If accessed through legacy /service-areas/:locationSlug, redirect to /plumber-[location]
+  if (currentPath.startsWith('/service-areas/')) {
+    return <Navigate to={canonicalUrl} replace />;
+  }
 
   const availableSlugs = serviceInLocation[location.slug] ?? [];
   const availableServices = services.filter((s) => availableSlugs.includes(s.slug));
@@ -24,7 +32,7 @@ export default function ServiceAreaDetailPage() {
     breadcrumbSchema([
       { name: 'Home', path: '/' },
       { name: 'Service Areas', path: '/service-areas' },
-      { name: `${location.city}, ${location.state}`, path: `/service-areas/${location.slug}` },
+      { name: `${location.city}, ${location.state}`, path: canonicalUrl },
     ]),
   ];
 
@@ -36,7 +44,7 @@ export default function ServiceAreaDetailPage() {
       <Seo
         title={seoTitle}
         description={seoDesc}
-        path={`/service-areas/${location.slug}`}
+        path={canonicalUrl}
         jsonLd={jsonLd}
       />
 
@@ -83,19 +91,13 @@ export default function ServiceAreaDetailPage() {
                     <h3 className="font-display text-base font-semibold text-navy-900">{s.shortName}</h3>
                   </div>
                   <p className="mt-3 flex-1 text-sm text-navy-600 leading-relaxed">{s.summary}</p>
-                  <div className="mt-4 flex flex-wrap gap-2">
-                    <Link
-                      to={`/services/${s.slug}`}
-                      className="text-sm font-semibold text-aqua-600 hover:text-aqua-700"
-                    >
-                      Service Details
-                    </Link>
-                    <span className="text-navy-300">·</span>
+                  <div className="mt-4 flex items-center">
                     <Link
                       to={`/${serviceLocationSlug(s.slug, location.slug)}`}
-                      className="text-sm font-semibold text-navy-700 hover:text-aqua-600"
+                      className="inline-flex items-center gap-1.5 text-sm font-semibold text-aqua-600 hover:text-aqua-700"
                     >
-                      {s.shortName} in {location.city}
+                      View {s.shortName} in {location.city}
+                      <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                     </Link>
                   </div>
                 </div>
@@ -139,7 +141,7 @@ export default function ServiceAreaDetailPage() {
                   {locations.filter((l) => l.slug !== location.slug).map((l) => (
                     <li key={l.slug}>
                       <Link
-                        to={`/service-areas/${l.slug}`}
+                        to={getLocationUrl(l.slug)}
                         className="flex items-center justify-between text-sm text-navy-700 hover:text-aqua-600"
                       >
                         <span className="flex items-center gap-2">

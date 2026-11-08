@@ -23,6 +23,7 @@ export default function App() {
           <Route path="/services/:serviceSlug" element={<ServiceDetailPage />} />
           <Route path="/service-areas" element={<ServiceAreasIndexPage />} />
           <Route path="/service-areas/:locationSlug" element={<ServiceAreaDetailPage />} />
+          <Route path="/plumber-:locationSlug" element={<ServiceAreaDetailPage />} />
           <Route path="/:serviceLocationSlug" element={<ServiceLocationPage />} />
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />

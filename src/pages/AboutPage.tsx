@@ -8,6 +8,7 @@ import Seo, {
 import PageHero from '@/components/PageHero';
 import CallButton from '@/components/CallButton';
 import CtaSection from '@/components/CtaSection';
+import ReviewsSection from '@/components/ReviewsSection';
 import { business } from '@/data/business';
 
 const values = [
@@ -214,6 +215,9 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
+
+      {/* Customer Reviews */}
+      <ReviewsSection />
 
       <CtaSection
         title="Let's Solve Your Plumbing Problem"

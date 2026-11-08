@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import { Home, Droplet, ArrowLeft, Phone } from 'lucide-react';
 import Seo from '@/components/Seo';
 import CallButton from '@/components/CallButton';
-import { business, services, locations } from '@/data/business';
+import { business, services, locations, getServiceUrl, getLocationUrl } from '@/data/business';
 
 export default function NotFoundPage() {
   return (
@@ -46,7 +46,7 @@ export default function NotFoundPage() {
                 <ul className="mt-3 space-y-2 text-sm">
                   {services.slice(0, 5).map((s) => (
                     <li key={s.slug}>
-                      <Link to={`/services/${s.slug}`} className="text-navy-200 hover:text-aqua-300">
+                      <Link to={getServiceUrl(s.slug)} className="text-navy-200 hover:text-aqua-300">
                         {s.shortName}
                       </Link>
                     </li>
@@ -62,7 +62,7 @@ export default function NotFoundPage() {
                 <ul className="mt-3 space-y-2 text-sm">
                   {locations.map((l) => (
                     <li key={l.slug}>
-                      <Link to={`/service-areas/${l.slug}`} className="text-navy-200 hover:text-aqua-300">
+                      <Link to={getLocationUrl(l.slug)} className="text-navy-200 hover:text-aqua-300">
                         {l.city}, {l.state}
                       </Link>
                     </li>

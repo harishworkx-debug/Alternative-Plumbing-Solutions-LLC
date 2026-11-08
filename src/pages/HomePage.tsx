@@ -10,8 +10,9 @@ import Seo, {
 import CallButton from '@/components/CallButton';
 import CtaSection from '@/components/CtaSection';
 import FaqList from '@/components/FaqList';
+import ReviewsSection from '@/components/ReviewsSection';
 import { ServiceIcon } from '@/components/ServiceIcon';
-import { business, services, locations, serviceLocationSlug } from '@/data/business';
+import { business, services, locations, serviceLocationSlug, getServiceUrl, getLocationUrl } from '@/data/business';
 
 const heroImage =
   'https://images.pexels.com/photos/6419128/pexels-photo-6419128.jpeg?auto=compress&cs=tinysrgb&h=900&w=1600';
@@ -143,10 +144,25 @@ export default function HomePage() {
 
         <div className="container-base relative py-20 md:py-28 lg:py-32">
           <div className="max-w-3xl">
-            <span className="inline-flex items-center gap-2 rounded-full bg-aqua-500/10 px-4 py-1.5 text-sm font-semibold text-aqua-300 ring-1 ring-aqua-400/30 animate-fade-in-down">
-              <Droplet className="h-4 w-4" fill="currentColor" />
-              Pearland &amp; Greater Houston Plumber
-            </span>
+            <div className="flex flex-wrap items-center gap-2.5">
+              <span className="inline-flex items-center gap-2 rounded-full bg-aqua-500/10 px-4 py-1.5 text-sm font-semibold text-aqua-300 ring-1 ring-aqua-400/30 animate-fade-in-down">
+                <Droplet className="h-4 w-4" fill="currentColor" />
+                Pearland &amp; Greater Houston Plumber
+              </span>
+              <a
+                href={business.googleMapsUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 rounded-full bg-white/10 backdrop-blur px-3 py-1.5 text-xs font-semibold text-white ring-1 ring-white/20 transition-all hover:bg-white/20 animate-fade-in-down"
+              >
+                <div className="flex text-amber-400">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} className={`h-3 w-3 ${i < 4 ? 'fill-amber-400 text-amber-400' : 'fill-white/30 text-white/30'}`} />
+                  ))}
+                </div>
+                <span>4.0 (48 Google Reviews)</span>
+              </a>
+            </div>
             <h1 className="mt-5 font-display text-4xl font-bold leading-[1.05] text-white text-balance animate-fade-in-up sm:text-5xl lg:text-6xl">
               Fast, Affordable Plumbing Solutions for Your Home or Business
             </h1>
@@ -179,11 +195,12 @@ export default function HomePage() {
 
       {/* Trust bar */}
       <section className="border-b border-navy-100 bg-white">
-        <div className="container-base grid grid-cols-2 gap-6 py-8 md:grid-cols-4">
+        <div className="container-base grid grid-cols-2 gap-6 py-8 sm:grid-cols-3 md:grid-cols-5">
+          <TrustStat icon={Star} label="Google Reviews" value="4.0 ★ (48 Reviews)" />
           <TrustStat icon={MapPin} label="Based In" value="Pearland, TX" />
           <TrustStat icon={Clock} label="Open" value="6 Days a Week" />
           <TrustStat icon={Building2} label="Service Type" value="Residential & Commercial" />
-          <TrustStat icon={Droplet} label="Serving" value="Greater Houston" />
+          <TrustStat icon={Droplet} label="Service Areas" value="10 Houston Areas" />
         </div>
       </section>
 
@@ -259,7 +276,7 @@ export default function HomePage() {
             {services.map((s) => (
               <Link
                 key={s.slug}
-                to={`/services/${s.slug}`}
+                to={getServiceUrl(s.slug)}
                 className="group relative flex flex-col overflow-hidden rounded-2xl border border-navy-100 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl hover:shadow-navy-900/10"
               >
                 <div className="relative h-40 overflow-hidden">
@@ -424,11 +441,11 @@ export default function HomePage() {
               Houston area. Click your city to see the services available near you.
             </p>
           </div>
-          <div className="mt-12 grid gap-6 md:grid-cols-3">
+          <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {locations.map((l) => (
               <Link
                 key={l.slug}
-                to={`/service-areas/${l.slug}`}
+                to={getLocationUrl(l.slug)}
                 className="group relative overflow-hidden rounded-2xl bg-navy-900 p-7 text-white shadow-lg transition-all duration-300 hover:-translate-y-1.5 hover:shadow-2xl"
               >
                 <div className="absolute -right-8 -top-8 h-32 w-32 rounded-full bg-aqua-500/15 blur-2xl transition-all group-hover:bg-aqua-500/25" />
@@ -468,6 +485,9 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      {/* Customer Reviews */}
+      <ReviewsSection />
 
       {/* Process */}
       <section className="relative overflow-hidden bg-navy-900 py-20 lg:py-28">
