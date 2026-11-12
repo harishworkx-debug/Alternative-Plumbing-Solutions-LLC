@@ -4,7 +4,7 @@ import Seo, { breadcrumbSchema, localBusinessSchema } from '@/components/Seo';
 import PageHero from '@/components/PageHero';
 import CtaSection from '@/components/CtaSection';
 import CallButton from '@/components/CallButton';
-import { locations, services, serviceInLocation, serviceLocationSlug, getLocationUrl } from '@/data/business';
+import { locations, services, serviceLocationSlug, getLocationUrl } from '@/data/business';
 
 const heroImage =
   'https://images.pexels.com/photos/7710011/pexels-photo-7710011.jpeg?auto=compress&cs=tinysrgb&h=900&w=1600';
@@ -21,8 +21,8 @@ export default function ServiceAreasIndexPage() {
   return (
     <>
       <Seo
-        title="Service Areas | Plumber in Pearland, Friendswood & Greater Houston"
-        description="Alternative Plumbing Solutions serves Pearland, Friendswood, and the greater Houston area with residential and commercial plumbing services. See if we serve your area."
+        title="Plumbing Service Areas | Greater Houston | Alternative Plumbing Solutions"
+        description="View all 10 Greater Houston cities served by Alternative Plumbing Solutions, LLC, including Pearland, Friendswood, Houston, Alvin, Manvel, and Sugar Land."
         path="/service-areas"
         ogImage={heroImage}
         jsonLd={jsonLd}
@@ -63,7 +63,7 @@ export default function ServiceAreasIndexPage() {
                     to={getLocationUrl(l.slug)}
                     className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-aqua-600 hover:text-aqua-700"
                   >
-                    View {l.city} Services
+                    Plumber in {l.city}, {l.state}
                     <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                   </Link>
                   <div className="mt-5 border-t border-navy-50 pt-4">
@@ -75,7 +75,7 @@ export default function ServiceAreasIndexPage() {
                             to={`/${serviceLocationSlug(s.slug, l.slug)}`}
                             className="text-sm text-navy-600 hover:text-aqua-600"
                           >
-                            {s.shortName} in {l.city}
+                            {s.seo.primaryServiceName} in {l.city}
                           </Link>
                         </li>
                       ))}

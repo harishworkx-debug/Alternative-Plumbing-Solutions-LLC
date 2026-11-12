@@ -51,7 +51,7 @@ export default function AboutPage() {
     <>
       <Seo
         title="About Alternative Plumbing Solutions, LLC | Pearland Plumber"
-        description="Learn about Alternative Plumbing Solutions, LLC — a Pearland, TX based plumbing company serving the greater Houston area with residential and commercial plumbing services."
+        description="Learn about Alternative Plumbing Solutions, LLC — a Pearland, TX plumbing company serving residential and commercial properties across Greater Houston."
         path="/about"
         ogImage={heroImage}
         jsonLd={jsonLd}
@@ -141,6 +141,52 @@ export default function AboutPage() {
         </div>
       </section>
 
+      {/* Verified Local Trust & Estimate Transparency */}
+      <section className="border-t border-navy-100 bg-white py-16 lg:py-20">
+        <div className="container-base">
+          <div className="rounded-3xl border border-navy-100 bg-navy-50/70 p-8 md:p-10">
+            <p className="eyebrow">Local Business Standards</p>
+            <h2 className="mt-2 font-display text-2xl font-bold text-navy-900 sm:text-3xl">
+              Direct Pearland Office — Straightforward Scope &amp; Communication
+            </h2>
+            <p className="mt-3 max-w-3xl text-navy-600">
+              {business.legalName} operates locally from {business.address.full} — not a national
+              call-center dispatch directory. When you call {business.phone}, you speak directly
+              with our local team to review symptoms, confirm coverage, and discuss scope before work proceeds.
+            </p>
+            <div className="mt-6 grid gap-5 sm:grid-cols-3">
+              <div className="rounded-2xl bg-white p-5 shadow-sm ring-1 ring-navy-100">
+                <h3 className="font-display text-base font-bold text-navy-900">
+                  Direct Phone &amp; Text
+                </h3>
+                <p className="mt-1.5 text-sm text-navy-600">
+                  Call or text {business.phone} ({business.hoursSummary}) without waiting through
+                  automated third-party lead brokers.
+                </p>
+              </div>
+              <div className="rounded-2xl bg-white p-5 shadow-sm ring-1 ring-navy-100">
+                <h3 className="font-display text-base font-bold text-navy-900">
+                  Practical Repair Options
+                </h3>
+                <p className="mt-1.5 text-sm text-navy-600">
+                  Where a repair or flush safely solves the problem instead of full equipment
+                  replacement, we walk you through both options clearly.
+                </p>
+              </div>
+              <div className="rounded-2xl bg-white p-5 shadow-sm ring-1 ring-navy-100">
+                <h3 className="font-display text-base font-bold text-navy-900">
+                  Verified Pearland Location
+                </h3>
+                <p className="mt-1.5 text-sm text-navy-600">
+                  Based in Pearland (ZIP {business.address.zip}), serving Pearland, Friendswood, and
+                  nearby Greater Houston communities.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Service & contact summary */}
       <section className="py-20 lg:py-28">
         <div className="container-base grid gap-12 lg:grid-cols-2">
@@ -207,9 +253,15 @@ export default function AboutPage() {
                 </div>
               </div>
             </dl>
-            <div className="mt-8">
+            <div className="mt-8 flex flex-wrap gap-3">
               <Link to="/contact" className="btn-ghost">
-                View Contact Page
+                Contact &amp; Location Details
+              </Link>
+              <Link to="/services" className="btn-ghost">
+                All Plumbing Services
+              </Link>
+              <Link to="/guides" className="btn-ghost">
+                Plumbing Guides
               </Link>
             </div>
           </div>

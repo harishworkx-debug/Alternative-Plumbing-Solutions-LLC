@@ -1,9 +1,51 @@
 {
-  "rewrites": [
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "redirects": [
     {
-      "source": "/(.*)",
-      "destination": "/index.html"
+      "source": "/service-area",
+      "destination": "/service-areas",
+      "permanent": true
+    },
+    {
+      "source": "/service-areas/:loc(pearland-tx|friendswood-tx|houston-tx|alvin-tx|manvel-tx|league-city-tx|pasadena-tx|webster-tx|clear-lake-tx|sugar-land-tx)",
+      "destination": "/plumber-:loc",
+      "permanent": true
+    },
+    {
+      "source": "/service-area/:loc(pearland-tx|friendswood-tx|houston-tx|alvin-tx|manvel-tx|league-city-tx|pasadena-tx|webster-tx|clear-lake-tx|sugar-land-tx)",
+      "destination": "/plumber-:loc",
+      "permanent": true
+    },
+    {
+      "source": "/service-areas/:loc(pearland|friendswood|houston|alvin|manvel|league-city|pasadena|webster|clear-lake|sugar-land)",
+      "destination": "/plumber-:loc-tx",
+      "permanent": true
+    },
+    {
+      "source": "/service-area/:loc(pearland|friendswood|houston|alvin|manvel|league-city|pasadena|webster|clear-lake|sugar-land)",
+      "destination": "/plumber-:loc-tx",
+      "permanent": true
+    },
+    {
+      "source": "/services/:svc(water-heater-repair-and-installation|drain-cleaning|sewer-line-inspection|gas-piping|fixture-installation|new-construction-plumbing|plumbing-repair|leak-detection|pipe-repair-and-repiping|toilet-repair-and-installation)",
+      "destination": "/:svc-pearland-tx",
+      "permanent": true
+    },
+    {
+      "source": "/:loc(pearland-tx|friendswood-tx|houston-tx|alvin-tx|manvel-tx|league-city-tx|pasadena-tx|webster-tx|clear-lake-tx|sugar-land-tx)",
+      "destination": "/plumber-:loc",
+      "permanent": true
+    },
+    {
+      "source": "/:loc(pearland|friendswood|houston|alvin|manvel|league-city|pasadena|webster|clear-lake|sugar-land)",
+      "destination": "/plumber-:loc-tx",
+      "permanent": true
+    },
+    {
+      "source": "/:svc(water-heater-repair-and-installation|drain-cleaning|sewer-line-inspection|gas-piping|fixture-installation|new-construction-plumbing|plumbing-repair|leak-detection|pipe-repair-and-repiping|toilet-repair-and-installation)",
+      "destination": "/:svc-pearland-tx",
+      "permanent": true
     }
   ]
 }
-

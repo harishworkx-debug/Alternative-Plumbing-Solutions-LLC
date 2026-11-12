@@ -212,6 +212,9 @@ export default function Header() {
               )}
             </div>
 
+            <NavLink to="/guides" className={navLinkClass}>
+              Guides
+            </NavLink>
             <NavLink to="/contact" className={navLinkClass}>
               Contact
             </NavLink>
@@ -278,6 +281,7 @@ export default function Header() {
                 <MobileLink key={l.slug} to={getLocationUrl(l.slug)} label={`${l.city}, ${l.state}`} nested />
               ))}
             </MobileGroup>
+            <MobileLink to="/guides" label="Plumbing Guides" />
             <MobileLink to="/contact" label="Contact" />
           </nav>
 

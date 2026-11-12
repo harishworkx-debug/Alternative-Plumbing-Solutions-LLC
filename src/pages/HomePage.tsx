@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import {
   Phone, Droplet, Wrench, Clock, ShieldCheck, MapPin,
   ArrowRight, CheckCircle2, Search, Building2, Home as HomeIcon,
-  Flame, Droplets, Bath, AlertTriangle, Star,
+  Flame, Droplets, Bath, AlertTriangle, Star, BookOpen,
 } from 'lucide-react';
 import Seo, {
   localBusinessSchema, organizationSchema, websiteSchema, breadcrumbSchema,
@@ -12,7 +12,8 @@ import CtaSection from '@/components/CtaSection';
 import FaqList from '@/components/FaqList';
 import ReviewsSection from '@/components/ReviewsSection';
 import { ServiceIcon } from '@/components/ServiceIcon';
-import { business, services, locations, serviceLocationSlug, getServiceUrl, getLocationUrl } from '@/data/business';
+import { business, services, locations, getServiceUrl, getLocationUrl } from '@/data/business';
+import { articles } from '@/data/articles';
 
 const heroImage =
   'https://images.pexels.com/photos/6419128/pexels-photo-6419128.jpeg?auto=compress&cs=tinysrgb&h=900&w=1600';
@@ -122,8 +123,8 @@ export default function HomePage() {
   return (
     <>
       <Seo
-        title="Alternative Plumbing Solutions, LLC | Plumber in Pearland, TX"
-        description="Trusted plumber in Pearland, TX offering water heater repair, drain cleaning, sewer line inspection, gas piping, fixture installation, and new construction plumbing. Call (713) 501-1214."
+        title="Alternative Plumbing Solutions | Plumber in Pearland, TX"
+        description="Looking for a local plumber in Pearland, TX? Explore plumbing repairs, drain cleaning, water heater service, and leak detection. Call (713) 501-1214."
         path="/"
         ogImage={heroImage}
         jsonLd={jsonLd}
@@ -136,7 +137,6 @@ export default function HomePage() {
           alt="Professional plumber installing steel pipes"
           className="absolute inset-0 h-full w-full object-cover opacity-30"
           loading="eager"
-          fetchPriority="high"
         />
         <div className="absolute inset-0 bg-gradient-to-br from-navy-950 via-navy-950/90 to-navy-900/60" />
         <div className="absolute inset-0 bg-grid opacity-20" />
@@ -147,7 +147,7 @@ export default function HomePage() {
             <div className="flex flex-wrap items-center gap-2.5">
               <span className="inline-flex items-center gap-2 rounded-full bg-aqua-500/10 px-4 py-1.5 text-sm font-semibold text-aqua-300 ring-1 ring-aqua-400/30 animate-fade-in-down">
                 <Droplet className="h-4 w-4" fill="currentColor" />
-                Pearland &amp; Greater Houston Plumber
+                Local Plumber · Pearland, TX
               </span>
               <a
                 href={business.googleMapsUrl}
@@ -164,12 +164,13 @@ export default function HomePage() {
               </a>
             </div>
             <h1 className="mt-5 font-display text-4xl font-bold leading-[1.05] text-white text-balance animate-fade-in-up sm:text-5xl lg:text-6xl">
-              Fast, Affordable Plumbing Solutions for Your Home or Business
+              Professional Plumbing Services in Pearland, TX
             </h1>
             <p className="mt-5 max-w-xl text-lg text-navy-200 text-pretty animate-fade-in-up animate-delay-100">
-              Alternative Plumbing Solutions, LLC is a trusted plumber in Pearland, TX serving the
-              greater Houston area. Water heaters, drains, sewer lines, gas piping, and more —
-              call us and get your plumbing problem solved.
+              Alternative Plumbing Solutions is a trusted plumbing company and plumbing contractor in
+              Pearland, TX. From residential plumber repairs, drain cleaning, and water heater
+              services to leak detection and commercial plumbing installations, call us for service
+              information and an estimate.
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center animate-fade-in-up animate-delay-200">
               <CallButton size="lg" variant="primary" label="Call Now" />
@@ -218,20 +219,20 @@ export default function HomePage() {
                 />
               </div>
               <div className="absolute -bottom-5 -right-5 hidden rounded-2xl bg-aqua-500 px-5 py-4 text-navy-950 shadow-xl sm:block">
-                <p className="font-display text-xl font-bold">8 Services</p>
-                <p className="text-sm font-medium">For Home &amp; Business</p>
+                <p className="font-display text-xl font-bold">{services.length} Services</p>
+                <p className="text-sm font-medium">Home &amp; Commercial</p>
               </div>
             </div>
             <div className="order-1 lg:order-2">
-              <p className="eyebrow">Trusted Pearland Plumbers</p>
+              <p className="eyebrow">Plumbing Company Pearland, TX</p>
               <h2 className="mt-3 font-display text-3xl font-bold text-navy-900 text-balance sm:text-4xl">
-                Your Local Plumbing Team — Ready When You Need Us
+                Your Local Plumber in Pearland — Ready When You Need Us
               </h2>
               <p className="mt-4 text-lg text-navy-600 text-pretty">
-                From a dripping faucet at home to a plumbing issue at your business, Alternative
-                Plumbing Solutions is equipped to handle it. We are a Pearland-based plumbing
-                company serving homeowners and businesses across the greater Houston area with
-                honest, quality workmanship.
+                Whether you need a residential plumber in Pearland for a dripping faucet or a
+                commercial plumbing contractor in Pearland, TX, Alternative Plumbing Solutions is
+                equipped to help. As a local plumbing company in Pearland, we deliver straightforward,
+                dependable workmanship across the Greater Houston area.
               </p>
               <p className="mt-4 text-navy-600 text-pretty">
                 We know plumbing problems do not wait. That is why we keep it simple — call us,
@@ -262,13 +263,13 @@ export default function HomePage() {
       <section className="bg-navy-50 py-20 lg:py-28">
         <div className="container-base">
           <div className="mx-auto max-w-2xl text-center">
-            <p className="eyebrow justify-center">What We Do</p>
+            <p className="eyebrow justify-center">Professional Plumbing Services</p>
             <h2 className="mt-3 font-display text-3xl font-bold text-navy-900 text-balance sm:text-4xl">
-              Plumbing Services Built for Pearland &amp; Greater Houston
+              Plumbing Services in Pearland, TX
             </h2>
             <p className="mt-4 text-lg text-navy-600 text-pretty">
-              From water heater repairs to new construction plumbing, we handle the full range of
-              residential and commercial plumbing work. Click any service to learn more.
+              Explore our water heater services, drain cleaning, leak detection, plumbing repairs,
+              and installations for homes and businesses in Pearland, TX.
             </p>
           </div>
 
@@ -285,6 +286,7 @@ export default function HomePage() {
                     alt={s.name}
                     className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
                     loading="lazy"
+                    decoding="async"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-navy-950/70 to-transparent" />
                   <span className="absolute left-4 top-4 flex h-10 w-10 items-center justify-center rounded-xl bg-white/95 shadow-lg">
@@ -295,7 +297,7 @@ export default function HomePage() {
                   <h3 className="font-display text-lg font-semibold text-navy-900">{s.shortName}</h3>
                   <p className="mt-2 flex-1 text-sm text-navy-600 leading-relaxed">{s.summary}</p>
                   <span className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-aqua-600 transition-colors group-hover:text-aqua-700">
-                    View {s.shortName}
+                    {s.seo.primaryServiceName} in Pearland
                     <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                   </span>
                 </div>
@@ -318,11 +320,11 @@ export default function HomePage() {
           <div className="mx-auto max-w-2xl text-center">
             <p className="eyebrow justify-center">Who We Serve</p>
             <h2 className="mt-3 font-display text-3xl font-bold text-navy-900 text-balance sm:text-4xl">
-              Residential &amp; Commercial Plumbing
+              Residential &amp; Commercial Plumbing in Pearland
             </h2>
             <p className="mt-4 text-lg text-navy-600 text-pretty">
-              Whether it is your home or your business, we have the tools and experience to get the
-              job done right.
+              Whether you need a residential plumber in Pearland or a commercial plumbing contractor,
+              we have the tools and experience to get the job done right.
             </p>
           </div>
 
@@ -456,32 +458,18 @@ export default function HomePage() {
                   {l.intro.slice(0, 110)}…
                 </p>
                 <span className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-aqua-300">
-                  View {l.city} Services
+                  Plumber in {l.city}, {l.state}
                   <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                 </span>
               </Link>
             ))}
           </div>
 
-          {/* Popular service-location links */}
-          <div className="mt-12 rounded-3xl bg-navy-50 p-8 md:p-10">
-            <h3 className="text-center font-display text-xl font-bold text-navy-900">
-              Popular Service &amp; Location Pages
-            </h3>
-            <div className="mt-6 flex flex-wrap justify-center gap-3">
-              {services.slice(0, 4).map((s) =>
-                locations.map((l) => (
-                  <Link
-                    key={`${s.slug}-${l.slug}`}
-                    to={`/${serviceLocationSlug(s.slug, l.slug)}`}
-                    className="inline-flex items-center gap-2 rounded-full bg-white px-4 py-2 text-sm font-medium text-navy-700 shadow-sm ring-1 ring-navy-100 transition-all hover:bg-aqua-50 hover:text-aqua-700 hover:ring-aqua-200"
-                  >
-                    <ServiceIcon name={s.icon} className="h-4 w-4 text-aqua-500" />
-                    {s.shortName} in {l.city}
-                  </Link>
-                ))
-              )}
-            </div>
+          <div className="mt-12 text-center">
+            <Link to="/service-areas" className="btn-navy">
+              Explore All Service Areas
+              <ArrowRight className="h-4 w-4" />
+            </Link>
           </div>
         </div>
       </section>
@@ -524,19 +512,19 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Emergency plumbing highlight */}
+      {/* Urgent plumbing highlight */}
       <section className="py-20 lg:py-24">
         <div className="container-base">
           <div className="grid gap-10 lg:grid-cols-3">
             <div className="lg:col-span-1">
-              <p className="eyebrow">Plumbing Emergency?</p>
+              <p className="eyebrow">Urgent Plumbing Problems</p>
               <h2 className="mt-3 font-display text-3xl font-bold text-navy-900 text-balance sm:text-4xl">
-                Do Not Wait — Call Now
+                Shut Off Water First — Then Call {business.phone}
               </h2>
               <p className="mt-4 text-navy-600 text-pretty">
-                A burst pipe, an active leak, or a water heater that fails can cause serious damage
-                fast. The sooner you call, the sooner we can help. Shut off your water supply if
-                you can, then call us right away.
+                A burst pipe, active leak, or sudden loss of hot water can damage floors and walls
+                quickly. Close your main shutoff valve right away and call our Pearland office at{' '}
+                {business.phone} ({business.hoursSummary}) to arrange help.
               </p>
               <div className="mt-6">
                 <CallButton size="lg" label="Call Now" />
@@ -544,10 +532,10 @@ export default function HomePage() {
             </div>
             <div className="grid gap-4 sm:grid-cols-2 lg:col-span-2">
               {[
-                { icon: Droplets, title: 'Burst Pipes', desc: 'A cracked or frozen pipe can flood a room in minutes. Call us to stop the damage.' },
-                { icon: Flame, title: 'No Hot Water', desc: 'A failed water heater disrupts your whole day. We repair and replace — fast.' },
-                { icon: AlertTriangle, title: 'Active Leaks', desc: 'Water where it should not be? We find the source and fix it before it gets worse.' },
-                { icon: Wrench, title: 'Sewer Backups', desc: 'Multiple drains backing up means a main line issue. We clear it and inspect the cause.' },
+                { icon: Droplets, title: 'Burst Pipes', desc: 'A cracked or frozen pipe can flood a room quickly. Shut off your water supply and call us right away.' },
+                { icon: Flame, title: 'No Hot Water', desc: 'A failing tank or tankless water heater disrupts your household. Call us for diagnostics and repair options.' },
+                { icon: AlertTriangle, title: 'Active Leaks', desc: 'Seeing damp drywall or pooling water? We locate the leak source and repair compromised pipe sections.' },
+                { icon: Wrench, title: 'Sewer Backups', desc: 'Multiple fixtures backing up indicates a main drain restriction. We clear blockages and inspect the line.' },
               ].map((item) => (
                 <div key={item.title} className="rounded-2xl border border-navy-100 bg-white p-6 shadow-sm transition-all hover:shadow-md">
                   <item.icon className="h-7 w-7 text-aqua-600" />
@@ -556,6 +544,52 @@ export default function HomePage() {
                 </div>
               ))}
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Helpful Plumbing Guides */}
+      <section className="border-t border-navy-100 py-20 lg:py-24">
+        <div className="container-base">
+          <div className="flex flex-col justify-between gap-4 md:flex-row md:items-end">
+            <div>
+              <p className="eyebrow">Homeowner Guides</p>
+              <h2 className="mt-3 font-display text-3xl font-bold text-navy-900 text-balance sm:text-4xl">
+                Helpful Plumbing Advice &amp; Troubleshooting
+              </h2>
+              <p className="mt-3 max-w-2xl text-navy-600">
+                Learn common warning signs for drain clogs, water heater failures, hidden pipe
+                leaks, and sewer camera inspections.
+              </p>
+            </div>
+            <Link to="/guides" className="btn-ghost self-start md:self-auto">
+              <BookOpen className="h-4 w-4 text-aqua-600" />
+              All Plumbing Guides
+            </Link>
+          </div>
+
+          <div className="mt-10 grid gap-6 md:grid-cols-3">
+            {articles.slice(0, 3).map((guide) => (
+              <Link
+                key={guide.slug}
+                to={`/guides/${guide.slug}`}
+                className="group flex flex-col rounded-2xl border border-navy-100 bg-white p-6 shadow-sm transition-all hover:-translate-y-1 hover:shadow-lg"
+              >
+                <span className="inline-flex w-fit items-center rounded-full bg-aqua-50 px-3 py-1 text-xs font-semibold text-aqua-700">
+                  {guide.category}
+                </span>
+                <h3 className="mt-4 font-display text-lg font-bold text-navy-900 group-hover:text-aqua-700">
+                  {guide.title}
+                </h3>
+                <p className="mt-2 flex-1 text-sm text-navy-600 leading-relaxed">
+                  {guide.excerpt}
+                </p>
+                <span className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-aqua-600">
+                  {guide.title}
+                  <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                </span>
+              </Link>
+            ))}
           </div>
         </div>
       </section>

@@ -1,5 +1,6 @@
-import { useEffect } from 'react';
+import { useContext, useEffect } from 'react';
 import { business } from '@/data/business';
+import { SeoContext } from '@/context/seoContext';
 
 interface SeoProps {
   title: string;
@@ -7,6 +8,7 @@ interface SeoProps {
   path?: string;
   ogImage?: string;
   jsonLd?: object | object[];
+  noindex?: boolean;
 }
 
 function setMeta(attr: 'name' | 'property', key: string, content: string) {
@@ -29,6 +31,10 @@ function setLink(rel: string, href: string) {
   el.setAttribute('href', href);
 }
 
+function removeLink(rel: string) {
+  document.head.querySelector(`link[rel="${rel}"]`)?.remove();
+}
+
 function setJsonLd(id: string, data: object | object[]) {
   let el = document.getElementById(id) as HTMLScriptElement | null;
   if (!el) {
@@ -44,14 +50,42 @@ function removeJsonLd(id: string) {
   document.getElementById(id)?.remove();
 }
 
-export default function Seo({ title, description, path = '', ogImage, jsonLd }: SeoProps) {
-  const url = `${business.website}${path}`;
+export default function Seo({
+  title,
+  description,
+  path = '',
+  ogImage,
+  jsonLd,
+  noindex = false,
+}: SeoProps) {
+  const url = `${business.website}${path === '/' ? '/' : path}`;
   const fullTitle = title.includes(business.shortName) ? title : `${title} | ${business.shortName}`;
+  const robots = noindex
+    ? 'noindex, nofollow'
+    : 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1';
+
+  const collector = useContext(SeoContext);
+  if (collector) {
+    collector.data = {
+      title: fullTitle,
+      description,
+      url,
+      canonicalUrl: noindex ? null : url,
+      robots,
+      ogImage,
+      jsonLd,
+    };
+  }
 
   useEffect(() => {
     document.title = fullTitle;
     setMeta('name', 'description', description);
-    setLink('canonical', url);
+    setMeta('name', 'robots', robots);
+    if (noindex) {
+      removeLink('canonical');
+    } else {
+      setLink('canonical', url);
+    }
 
     setMeta('property', 'og:title', fullTitle);
     setMeta('property', 'og:description', description);
@@ -75,7 +109,7 @@ export default function Seo({ title, description, path = '', ogImage, jsonLd }: 
     return () => {
       removeJsonLd('page-jsonld');
     };
-  }, [fullTitle, description, url, ogImage, jsonLd]);
+  }, [fullTitle, description, url, robots, noindex, ogImage, jsonLd]);
 
   return null;
 }
@@ -104,13 +138,6 @@ export const localBusinessSchema = {
     '@type': 'GeoCoordinates',
     latitude: business.address.geo.lat,
     longitude: business.address.geo.lng,
-  },
-  aggregateRating: {
-    '@type': 'AggregateRating',
-    ratingValue: '4.0',
-    reviewCount: '48',
-    bestRating: '5',
-    worstRating: '1',
   },
   areaServed: [
     { '@type': 'City', name: 'Pearland, TX' },
@@ -142,6 +169,8 @@ export const organizationSchema = {
   name: business.name,
   legalName: business.legalName,
   url: business.website,
+  logo: `${business.website}/apple-touch-icon.svg`,
+  image: `${business.website}/apple-touch-icon.svg`,
   telephone: business.phoneTel,
   email: business.email,
   address: {
@@ -160,6 +189,7 @@ export const websiteSchema = {
   '@id': `${business.website}/#website`,
   name: business.name,
   url: business.website,
+  publisher: { '@id': `${business.website}/#organization` },
   inLanguage: 'en-US',
 };
 
@@ -176,18 +206,73 @@ export function breadcrumbSchema(items: { name: string; path: string }[]) {
   };
 }
 
-export function serviceSchema(serviceName: string, serviceDesc: string, path: string) {
+export function serviceSchema(
+  serviceName: string,
+  serviceDesc: string,
+  path: string,
+  areaServedCity?: string
+) {
   return {
     '@context': 'https://schema.org',
     '@type': 'Service',
     name: serviceName,
     description: serviceDesc,
-    provider: { '@id': `${business.website}/#business` },
-    areaServed: [
-      { '@type': 'City', name: 'Pearland, TX' },
-      { '@type': 'City', name: 'Friendswood, TX' },
-      { '@type': 'City', name: 'Houston, TX' },
-    ],
+    provider: {
+      '@type': 'Plumber',
+      '@id': `${business.website}/#business`,
+      name: business.name,
+      url: business.website,
+      telephone: business.phoneTel,
+    },
+    areaServed: areaServedCity
+      ? { '@type': 'City', name: areaServedCity }
+      : [
+          { '@type': 'City', name: 'Pearland, TX' },
+          { '@type': 'City', name: 'Friendswood, TX' },
+          { '@type': 'City', name: 'Houston, TX' },
+        ],
     url: `${business.website}${path}`,
+  };
+}
+
+export function articleSchema(params: {
+  headline: string;
+  description: string;
+  path: string;
+  datePublished: string;
+  dateModified: string;
+  keywords: string;
+  image?: string;
+}) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: params.headline,
+    description: params.description,
+    mainEntityOfPage: {
+      '@type': 'WebPage',
+      '@id': `${business.website}${params.path}`,
+    },
+    url: `${business.website}${params.path}`,
+    datePublished: params.datePublished,
+    dateModified: params.dateModified,
+    keywords: params.keywords,
+    ...(params.image ? { image: params.image } : {}),
+    author: {
+      '@type': 'Organization',
+      '@id': `${business.website}/#organization`,
+      name: business.name,
+      url: business.website,
+    },
+    publisher: {
+      '@type': 'Organization',
+      '@id': `${business.website}/#organization`,
+      name: business.name,
+      url: business.website,
+      logo: {
+        '@type': 'ImageObject',
+        url: `${business.website}/apple-touch-icon.svg`,
+      },
+    },
   };
 }

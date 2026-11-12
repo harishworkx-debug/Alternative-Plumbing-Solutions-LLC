@@ -85,6 +85,7 @@ export default function Footer() {
             <li><Link to="/about" className="text-navy-200 hover:text-aqua-300">About Us</Link></li>
             <li><Link to="/services" className="text-navy-200 hover:text-aqua-300">All Services</Link></li>
             <li><Link to="/service-areas" className="text-navy-200 hover:text-aqua-300">All Service Areas</Link></li>
+            <li><Link to="/guides" className="text-navy-200 hover:text-aqua-300">Plumbing Guides</Link></li>
             <li><Link to="/contact" className="text-navy-200 hover:text-aqua-300">Contact</Link></li>
           </ul>
         </div>

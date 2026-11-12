@@ -23,7 +23,7 @@ export default function ServicesIndexPage() {
     <>
       <Seo
         title="Plumbing Services in Pearland & Greater Houston | Alternative Plumbing Solutions"
-        description="Full range of plumbing services in Pearland, TX: water heater repair, drain cleaning, sewer line inspection, gas piping, fixture installation, new construction plumbing, leak detection, and more."
+        description="Explore 10 residential and commercial plumbing services in Pearland & Greater Houston: water heaters, drains, sewer cameras, gas piping, and leak detection."
         path="/services"
         ogImage={heroImage}
         jsonLd={jsonLd}
@@ -66,7 +66,7 @@ export default function ServicesIndexPage() {
                   <h2 className="font-display text-xl font-semibold text-navy-900">{s.name}</h2>
                   <p className="mt-2 flex-1 text-sm text-navy-600 leading-relaxed">{s.summary}</p>
                   <span className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-aqua-600 group-hover:text-aqua-700">
-                    View {s.shortName}
+                    {s.seo.primaryServiceName} in Pearland
                     <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                   </span>
                 </div>
@@ -91,7 +91,7 @@ export default function ServicesIndexPage() {
                     to={getLocationUrl(l.slug)}
                     className="btn-ghost"
                   >
-                    {l.city}, {l.state}
+                    Plumber in {l.city}, {l.state}
                   </Link>
                 ))}
               </div>

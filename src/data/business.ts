@@ -10,8 +10,6 @@ export const business = {
   phone: '(713) 501-1214',
   phoneRaw: '713-501-1214',
   phoneTel: '+17135011214',
-  altPhone: '(281) 819-7277',
-  altPhoneTel: '+12818197277',
   email: 'cminhtown@gmail.com',
   website: 'https://www.alternativeplumbingsolutions.com',
   address: {
@@ -41,6 +39,13 @@ export const business = {
 } as const;
 
 // Verified services — sourced from the official business description.
+export interface ServiceSeoMeta {
+  primaryServiceName: string; // e.g. "Water Heater Repair"
+  secondaryKeywordsLabel: string; // e.g. "Water Heater Installation & Replacement"
+  serviceSummaryTemplate: string; // Uses {city} so each location page targets only its own city
+  metaDescriptionTemplate: string; // Uses {city} so each location page targets its primary + secondary keywords cleanly
+}
+
 export interface ServiceDef {
   slug: string;
   name: string;
@@ -48,6 +53,7 @@ export interface ServiceDef {
   icon: string; // lucide icon name
   summary: string;
   description: string;
+  seo: ServiceSeoMeta;
   image: string;
   problems: string[];
   process: string[];
@@ -61,9 +67,17 @@ export const services: ServiceDef[] = [
     shortName: 'Water Heater Services',
     icon: 'Flame',
     summary:
-      'Fast, reliable water heater repair, replacement, and new installation for homes and businesses in Pearland and Greater Houston.',
+      'Reliable water heater repair, water heater installation, and replacement for residential and commercial properties.',
     description:
-      'Whether your water heater is leaking, producing rust-colored water, or has stopped heating altogether, Alternative Plumbing Solutions can diagnose the problem and get your hot water back quickly. We repair and replace both traditional tank and tankless water heaters, and we install new units sized correctly for your household demand.',
+      'Whether your water heater is leaking, producing rust-colored water, or has stopped heating altogether, Alternative Plumbing Solutions can diagnose the problem and restore your hot water. We handle water heater repair, water heater installation, and full unit replacement for both traditional tank and tankless water heaters sized for your property.',
+    seo: {
+      primaryServiceName: 'Water Heater Repair',
+      secondaryKeywordsLabel: 'Water Heater Installation, Replacement & Tankless Units',
+      serviceSummaryTemplate:
+        'Water heater repair, water heater installation, and replacement for residential and commercial properties in {city}, TX.',
+      metaDescriptionTemplate:
+        'Need water heater repair in {city}, TX? We provide tank & tankless water heater installation, replacement, and diagnostics. Call (713) 501-1214.',
+    },
     image:
       'https://images.pexels.com/photos/34938439/pexels-photo-34938439.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
     problems: [
@@ -86,11 +100,11 @@ export const services: ServiceDef[] = [
       },
       {
         q: 'Do you install tankless water heaters?',
-        a: 'Yes. We install and service tankless water heaters. Tankless units save space and provide continuous hot water, and we can help you choose a unit sized for your home.',
+        a: 'Yes. We handle water heater installation and service for both tank and tankless water heaters, helping you choose a unit sized for your home.',
       },
       {
         q: 'How long does a water heater installation take?',
-        a: 'A standard replacement is typically completed the same day. New installations that require gas line, venting, or electrical updates may take longer.',
+        a: 'A standard water heater replacement is typically completed quickly once the unit is on site. New installations requiring gas line, venting, or electrical updates may take longer.',
       },
     ],
   },
@@ -100,9 +114,17 @@ export const services: ServiceDef[] = [
     shortName: 'Drain Cleaning',
     icon: 'Droplets',
     summary:
-      'Clear stubborn clogs and restore proper flow in sinks, tubs, and main drains throughout your Pearland area property.',
+      'Clear clogged drains and restore proper flow in sinks, tubs, showers, and main drain lines.',
     description:
-      'Slow drains and recurring clogs are more than a nuisance — they often signal a deeper blockage in your pipes. Alternative Plumbing Solutions clears drains thoroughly so the problem does not come right back. We handle kitchen sinks, bathroom drains, tub and shower drains, floor drains, and main sewer lines.',
+      'Slow drains and recurring clogs are more than a nuisance — they often signal a deeper blockage in your pipes. Alternative Plumbing Solutions provides thorough clogged drain cleaning and drain blockage removal for kitchen sinks, bathroom drains, tub and shower drains, floor drains, and main sewer lines.',
+    seo: {
+      primaryServiceName: 'Drain Cleaning',
+      secondaryKeywordsLabel: 'Clogged Drain Repair, Kitchen & Bathroom Drains',
+      serviceSummaryTemplate:
+        'Drain cleaning, clogged drain repair, and drain blockage removal for sinks, tubs, and main lines in {city}, TX.',
+      metaDescriptionTemplate:
+        'Need drain cleaning in {city}, TX? Explore solutions for clogged sinks, slow drains, and recurring blockages. Contact Alternative Plumbing Solutions.',
+    },
     image:
       'https://images.pexels.com/photos/220612/pexels-photo-220612.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
     problems: [
@@ -129,7 +151,7 @@ export const services: ServiceDef[] = [
       },
       {
         q: 'Can you clear a main line clog?',
-        a: 'Yes. We clear main sewer line blockages that are causing multiple fixtures to back up at the same time.',
+        a: 'Yes. We provide drain blockage removal for main sewer line clogs that cause multiple fixtures to back up at the same time.',
       },
     ],
   },
@@ -139,9 +161,17 @@ export const services: ServiceDef[] = [
     shortName: 'Sewer Line Inspection',
     icon: 'Search',
     summary:
-      'Specialized camera inspections locate small sewer line issues before they become major, costly problems.',
+      'Specialized sewer camera inspection and sewer diagnostics locate small line issues before they become major problems.',
     description:
-      'Alternative Plumbing Solutions offers camera-based sewer line inspection services in Pearland and the surrounding area. A specialized camera system lets us see inside your sewer line to find cracks, root intrusion, bellied pipes, and blockages — so problems are found and fixed before they turn into expensive emergencies. If you are buying a home older than 20 years, a sewer inspection is strongly recommended before closing.',
+      'Alternative Plumbing Solutions offers specialized sewer camera inspection and sewer diagnostics. A camera system lets us see inside your sewer line to locate cracks, root intrusion, bellied pipes, and blockages — so problems are identified before they turn into costly emergencies. If you are buying a home older than 20 years, a sewer line inspection is strongly recommended before closing.',
+    seo: {
+      primaryServiceName: 'Sewer Line Inspection',
+      secondaryKeywordsLabel: 'Sewer Camera Inspection & Sewer Line Diagnostics',
+      serviceSummaryTemplate:
+        'Sewer line inspection, sewer camera inspection, and sewer diagnostics to evaluate underground lines in {city}, TX.',
+      metaDescriptionTemplate:
+        'Need sewer line inspection in {city}, TX? We run sewer camera diagnostics to find roots, cracks, and blockages early. Call (713) 501-1214.',
+    },
     image:
       'https://images.pexels.com/photos/29274530/pexels-photo-29274530.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
     problems: [
@@ -177,9 +207,17 @@ export const services: ServiceDef[] = [
     shortName: 'Gas Piping',
     icon: 'Flame',
     summary:
-      'Safe installation and repair of natural gas piping for appliances, generators, and more in Pearland and Greater Houston.',
+      'Safe gas line installation, gas piping repair, and gas pipe installation for appliances and generators.',
     description:
-      'Alternative Plumbing Solutions installs and repairs gas piping for natural gas appliances, generator connection points, and more. Proper gas piping is safety-critical work — every connection must be leak-free and up to code. We run new gas lines, extend existing lines, and inspect connections so your appliances and generator hookups are safe and reliable.',
+      'Alternative Plumbing Solutions provides gas line installation and gas piping repair for natural gas appliances, generator connection points, and more. Proper gas pipe installation is safety-critical work — every connection must be leak-free and up to code. We run new gas lines, extend existing lines, and pressure-test connections so your appliances and generator hookups operate safely.',
+    seo: {
+      primaryServiceName: 'Gas Piping',
+      secondaryKeywordsLabel: 'Gas Line Installation, Gas Pipe Repair & Residential Gas Piping',
+      serviceSummaryTemplate:
+        'Gas piping, gas line installation, and gas pipe repair with pressure-tested connections in {city}, TX.',
+      metaDescriptionTemplate:
+        'Need gas piping in {city}, TX? Alternative Plumbing Solutions handles gas line installation, gas pipe repair, and pressure testing. Call (713) 501-1214.',
+    },
     image:
       'https://images.pexels.com/photos/38730229/pexels-photo-38730229.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
     problems: [
@@ -215,9 +253,17 @@ export const services: ServiceDef[] = [
     shortName: 'Fixture Installation',
     icon: 'Bath',
     summary:
-      'Professional installation of bathtubs, faucets, sinks, and other plumbing fixtures for remodels and upgrades.',
+      'Professional plumbing fixture installation including faucet installation, sink installation, and bathtubs.',
     description:
-      'Updating a bathroom or kitchen? Alternative Plumbing Solutions installs bathtubs, faucets, sinks, and other plumbing fixtures with clean, leak-free workmanship. Whether you are replacing a single faucet or installing fixtures as part of a full remodel, we make sure every connection is correct and built to last.',
+      'Updating a bathroom or kitchen? Alternative Plumbing Solutions provides plumbing fixture installation for bathtubs, faucets, sinks, and shower fixtures with clean, leak-free workmanship. Whether you need a straightforward faucet installation, sink installation, or fixture connections for a remodel, we make sure every supply and drain connection is built to last.',
+    seo: {
+      primaryServiceName: 'Plumbing Fixture Installation',
+      secondaryKeywordsLabel: 'Faucet Installation, Sink Installation & Fixture Replacement',
+      serviceSummaryTemplate:
+        'Plumbing fixture installation, faucet installation, and sink installation for bathrooms, kitchens, and remodels in {city}, TX.',
+      metaDescriptionTemplate:
+        'Need plumbing fixture installation in {city}, TX? We install kitchen faucets, bathroom sinks, bathtubs, and remodel fixtures cleanly. Call (713) 501-1214.',
+    },
     image:
       'https://images.pexels.com/photos/12196323/pexels-photo-12196323.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
     problems: [
@@ -253,9 +299,17 @@ export const services: ServiceDef[] = [
     shortName: 'New Construction Plumbing',
     icon: 'Building2',
     summary:
-      'Complete plumbing installation for new homes and commercial builds in Pearland and the Greater Houston area.',
+      'Complete plumbing installation for new homes, remodels, and commercial builds.',
     description:
-      'Alternative Plumbing Solutions handles all the plumbing aspects of new construction and remodeling projects. From underground rough-in to final fixture installation, we coordinate with builders and homeowners to deliver plumbing systems that are correctly sized, up to code, and built to last.',
+      'Alternative Plumbing Solutions handles all phases of new construction plumbing and remodeling projects. From underground rough-in and top-out piping to final plumbing installation for new homes and commercial spaces, we coordinate with builders and homeowners to deliver code-compliant systems built to last.',
+    seo: {
+      primaryServiceName: 'New Construction Plumbing',
+      secondaryKeywordsLabel: 'New Home Plumbing Installation & Plumbing Rough-In',
+      serviceSummaryTemplate:
+        'New construction plumbing and full plumbing installation for new homes, remodels, and commercial builds in {city}, TX.',
+      metaDescriptionTemplate:
+        'Need new construction plumbing in {city}, TX? We provide residential and commercial plumbing installation from rough-in to finish. Call (713) 501-1214.',
+    },
     image:
       'https://images.pexels.com/photos/6419128/pexels-photo-6419128.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
     problems: [
@@ -273,7 +327,7 @@ export const services: ServiceDef[] = [
     faqs: [
       {
         q: 'Do you work with builders and contractors?',
-        a: 'Yes. We coordinate with builders, general contractors, and homeowners on new construction and remodeling projects throughout the Pearland area.',
+        a: 'Yes. We coordinate with builders, general contractors, and homeowners on new construction and remodeling projects across our service area.',
       },
       {
         q: 'What phases of construction plumbing do you handle?',
@@ -291,9 +345,17 @@ export const services: ServiceDef[] = [
     shortName: 'General Plumbing Repair',
     icon: 'Wrench',
     summary:
-      'Reliable repair for leaks, dripping faucets, running toilets, and everyday plumbing problems in Pearland and Greater Houston.',
+      'Reliable residential plumbing repair and commercial service for leaks, dripping faucets, low pressure, and pipe issues.',
     description:
-      'From a dripping faucet to a burst pipe, Alternative Plumbing Solutions handles the full range of residential and commercial plumbing repairs. We diagnose the problem correctly the first time and provide straightforward, affordable solutions so your plumbing works the way it should.',
+      'From a dripping faucet to a broken supply line, Alternative Plumbing Solutions handles residential plumbing repair and commercial plumbing repair with straightforward workmanship. We diagnose the root issue accurately and provide practical solutions so your plumbing works reliably.',
+    seo: {
+      primaryServiceName: 'Plumbing Repair',
+      secondaryKeywordsLabel: 'Residential Plumbing Repair, Pipe & Fixture Repair',
+      serviceSummaryTemplate:
+        'Plumbing repair and residential plumbing repair for leaks, faucets, low water pressure, and pipe problems in {city}, TX.',
+      metaDescriptionTemplate:
+        'Need plumbing repair in {city}, TX? We offer residential plumbing repair for leaks, faucets, low pressure, and pipe troubleshooting. Call (713) 501-1214.',
+    },
     image:
       'https://images.pexels.com/photos/16509869/pexels-photo-16509869.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
     problems: [
@@ -311,8 +373,8 @@ export const services: ServiceDef[] = [
     ],
     faqs: [
       {
-        q: 'Do you handle emergency plumbing repairs?',
-        a: 'Yes. A burst pipe or active leak should be addressed right away. Call us and we will work to get a plumber to you as quickly as possible.',
+        q: 'Do you handle urgent plumbing repairs?',
+        a: 'Yes. A burst pipe or active leak should be addressed promptly. Call us during business hours and we will work to schedule a plumber quickly.',
       },
       {
         q: 'Can you fix low water pressure?',
@@ -320,7 +382,7 @@ export const services: ServiceDef[] = [
       },
       {
         q: 'Should I attempt to fix a leak myself?',
-        a: 'Small drips can sometimes be slowed with a bucket or towel, but a proper repair requires the right parts and tools. Calling a plumber prevents the leak from worsening.',
+        a: 'Small drips can sometimes be contained temporarily with a bucket or shutoff valve, but a proper repair requires the right parts and tools. Calling a plumber prevents the leak from worsening.',
       },
     ],
   },
@@ -330,9 +392,17 @@ export const services: ServiceDef[] = [
     shortName: 'Leak Detection',
     icon: 'Droplet',
     summary:
-      'Find hidden leaks before they cause water damage, higher bills, or mold — serving Pearland and Greater Houston.',
+      'Water leak detection to locate hidden pipe leaks behind walls or under slabs before damage spreads.',
     description:
-      'Not every leak is obvious. A hidden leak behind a wall, under a slab, or underground can waste water, drive up your bill, and cause structural damage over time. Alternative Plumbing Solutions pinpoints the source of hidden leaks so they can be repaired with minimal disruption to your home.',
+      'Not every leak is obvious. A hidden pipe leak behind a wall, under a slab foundation, or underground wastes water, drives up your utility bill, and risks property damage over time. Alternative Plumbing Solutions provides focused water leak detection to pinpoint hidden pipe leaks so they can be repaired with minimal disruption.',
+    seo: {
+      primaryServiceName: 'Leak Detection',
+      secondaryKeywordsLabel: 'Water Leak Detection, Hidden Pipe & Slab Leak Detection',
+      serviceSummaryTemplate:
+        'Leak detection, water leak detection, and slab leak detection to locate hidden pipe leaks in {city}, TX.',
+      metaDescriptionTemplate:
+        'Looking for leak detection in {city}, TX? We locate hidden pipe leaks and slab leaks before water damage spreads. Call (713) 501-1214.',
+    },
     image:
       'https://images.pexels.com/photos/18274115/pexels-photo-18274115.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
     problems: [
@@ -368,9 +438,17 @@ export const services: ServiceDef[] = [
     shortName: 'Pipe Repair & Repiping',
     icon: 'Wrench',
     summary:
-      'Emergency pipe repair, burst freeze recovery, and full home repiping using durable PEX and copper for homes and businesses in Pearland & Greater Houston.',
+      'Pipe repair, whole house repiping, and water pipe replacement for burst, corroded, or leaking plumbing lines.',
     description:
-      'Whether you are dealing with burst pipes after a winter freeze, persistent leaks inside walls, or low water pressure from aging galvanized or cast iron lines, Alternative Plumbing Solutions provides dependable pipe repairs and complete whole-home repiping. We isolate problem sections quickly and install clean, high-performance piping built to last.',
+      'Whether you are dealing with burst pipes after a freeze, pinhole leaks inside walls, or low water pressure from aging galvanized supply lines, Alternative Plumbing Solutions provides dependable pipe repair and repiping. We complete targeted water pipe replacement as well as full whole house repiping using durable modern piping.',
+    seo: {
+      primaryServiceName: 'Pipe Repair and Repiping',
+      secondaryKeywordsLabel: 'Whole House Repiping & Water Pipe Replacement',
+      serviceSummaryTemplate:
+        'Pipe repair and repiping, whole house repiping, and water pipe replacement for burst or aging pipes in {city}, TX.',
+      metaDescriptionTemplate:
+        'Need pipe repair and repiping in {city}, TX? We offer whole house repiping and water pipe replacement for leaking or corroded pipes. Call (713) 501-1214.',
+    },
     image:
       'https://images.pexels.com/photos/6419128/pexels-photo-6419128.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
     problems: [
@@ -382,22 +460,22 @@ export const services: ServiceDef[] = [
     ],
     process: [
       'Call us right away — we walk you through shutting off your main valve to minimize property damage.',
-      'Our licensed plumbers locate the leak or evaluate your existing pipe system.',
-      'You receive an honest recommendation: spot repair, section replacement, or full repipe.',
+      'Our team locates the leak or evaluates your existing pipe system.',
+      'You receive an honest recommendation: spot repair, section replacement, or whole house repiping.',
       'We complete the installation cleanly, test water pressure, and verify no leaks remain.',
     ],
     faqs: [
       {
         q: 'What should I do if a pipe bursts in my home?',
-        a: 'Immediately turn off your main water shutoff valve to stop incoming water, open faucets to relieve residual pressure, and call Alternative Plumbing Solutions at (713) 501-1214 for emergency repair.',
+        a: 'Immediately turn off your main water shutoff valve to stop incoming water, open faucets to relieve residual pressure, and call Alternative Plumbing Solutions at (713) 501-1214.',
       },
       {
-        q: 'When does a house need a full repipe instead of a repair?',
-        a: 'If your home has original galvanized pipes that are rusting from the inside, polybutylene piping prone to failure, or if you have suffered multiple leaks in different locations, a whole-house repipe is much more reliable and cost-effective.',
+        q: 'When does a house need whole house repiping instead of a spot repair?',
+        a: 'If your home has original galvanized pipes that are rusting from the inside, aging lines prone to failure, or multiple leaks in different locations, whole house repiping is often more reliable and cost-effective.',
       },
       {
-        q: 'Do you use PEX piping for repipes?',
-        a: 'Yes. Modern PEX-a piping is flexible, highly freeze-resistant, corrosion-proof, and can be installed with minimal drywall disruption.',
+        q: 'Can you replace older water pipes with modern PEX or copper?',
+        a: 'Yes. We evaluate your property and discuss durable modern piping options like PEX or copper for water pipe replacement and repipes.',
       },
     ],
   },
@@ -407,9 +485,17 @@ export const services: ServiceDef[] = [
     shortName: 'Toilet Services',
     icon: 'Bath',
     summary:
-      'Professional toilet repair, unclogging, wax ring replacement, and high-efficiency toilet installation throughout Pearland and Greater Houston.',
+      'Toilet repair, toilet installation, toilet replacement, wax ring resealing, and clog clearing.',
     description:
-      'From constantly running toilets and weak flushes to leaking bases and complete fixture replacements, Alternative Plumbing Solutions provides dependable toilet services. Whether you need an emergency repair or want to upgrade to a modern water-saving toilet, our team ensures proper seal, secure mounting, and smooth drainage.',
+      'From constantly running toilets and weak flushes to leaking bases and complete upgrades, Alternative Plumbing Solutions provides reliable toilet repair, toilet installation, and toilet replacement. We inspect seals, valves, and drain connections to keep your bathroom clean and leak-free.',
+    seo: {
+      primaryServiceName: 'Toilet Repair',
+      secondaryKeywordsLabel: 'Toilet Installation, Replacement & Running Toilet Repair',
+      serviceSummaryTemplate:
+        'Toilet repair, toilet installation, and running toilet repair for wax seals, tanks, and clogs in {city}, TX.',
+      metaDescriptionTemplate:
+        'Need toilet repair in {city}, TX? We provide toilet installation, toilet replacement, wax ring seal repair, and clog clearing. Call (713) 501-1214.',
+    },
     image:
       'https://images.pexels.com/photos/1454806/pexels-photo-1454806.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
     problems: [
@@ -420,9 +506,9 @@ export const services: ServiceDef[] = [
       'Stubborn clogs that standard plunging cannot clear',
     ],
     process: [
-      'Describe the symptoms over the phone so we can arrive prepared with the right parts or replacement units.',
+      'Describe the symptoms over the phone so we can arrive prepared with the right parts or replacement options.',
       'We inspect the fill valve, flapper, wax seal, closet bolts, and drain line.',
-      'We provide transparent pricing before starting any repair or replacement.',
+      'We provide straightforward pricing before starting any repair or replacement.',
       'We complete the job, test multiple flushes, check the seal, and leave your bathroom clean.',
     ],
     faqs: [
@@ -436,11 +522,19 @@ export const services: ServiceDef[] = [
       },
       {
         q: 'Can I provide my own toilet for you to install?',
-        a: 'Yes. If you have purchased a toilet from a retailer, we can install, level, bolt down, and connect it with new supply lines and seals.',
+        a: 'Yes. If you have purchased a toilet, we handle the toilet installation, leveling, bolting, and supply connection with new seals.',
       },
     ],
   },
 ];
+
+export function getLocalizedServiceSummary(service: ServiceDef, city: string): string {
+  return service.seo.serviceSummaryTemplate.replace(/\{city\}/g, city);
+}
+
+export function getLocalizedServiceMetaDescription(service: ServiceDef, city: string): string {
+  return service.seo.metaDescriptionTemplate.replace(/\{city\}/g, city);
+}
 
 // Verified service areas — sourced from official business description ("Pearland, Friendswood,
 // TX, and the greater Houston area"). Only confirmed areas are listed.
@@ -461,21 +555,21 @@ export const locations: LocationDef[] = [
     state: 'TX',
     county: 'Brazoria County',
     intro:
-      'Alternative Plumbing Solutions is based in Pearland, Texas, and serves homeowners and businesses throughout the city. As a local Pearland plumber, we are familiar with the area\'s housing stock, soil conditions, and common plumbing issues — from aging sewer lines in older neighborhoods to new construction in growing communities.',
+      'Alternative Plumbing Solutions serves homeowners and businesses across Pearland, TX as a trusted local plumber and plumbing contractor. Familiar with Pearland neighborhoods, shifting clay soil, and housing styles, our team handles residential plumbing repairs, water heater service, drain cleaning, and commercial installations.',
     localInfo:
-      'Pearland is one of the fastest-growing cities in the Greater Houston area, with a mix of established neighborhoods and new construction. That range means plumbing needs vary widely — older homes often need sewer line inspections and repiping, while newer homes frequently require water heater upgrades, fixture installations, and gas piping for appliances and generators.',
+      'Pearland combines established neighborhoods with fast-growing residential and commercial developments. Older properties frequently benefit from sewer line camera inspections and whole-home repiping, while newer homes often call for water heater service, plumbing fixture installation, and gas piping for appliances and generators.',
     faqs: [
       {
-        q: 'Are you based in Pearland?',
-        a: 'Yes. Alternative Plumbing Solutions is located in Pearland, so we can respond quickly to plumbing calls throughout the city and nearby communities.',
+        q: 'Do you serve both residential and commercial properties in Pearland, TX?',
+        a: 'Yes. As a Pearland plumbing contractor, we handle residential plumbing repairs as well as commercial plumbing and new construction projects throughout the city.',
       },
       {
-        q: 'Do you serve both residential and commercial properties in Pearland?',
-        a: 'Yes. We handle both residential and commercial plumbing projects in Pearland, from single-home repairs to new construction plumbing.',
+        q: 'What plumbing services do you offer in Pearland?',
+        a: 'In Pearland, we offer water heater repair and installation, drain cleaning, sewer line camera inspection, gas piping, fixture installation, new construction plumbing, general plumbing repair, leak detection, repiping, and toilet repair.',
       },
       {
-        q: 'What hours are you available in Pearland?',
-        a: 'We are available Monday through Saturday, 7 AM to 7 PM. Sunday we are closed. For urgent issues during business hours, call us directly.',
+        q: 'What hours is a local plumber available in Pearland?',
+        a: 'We are open Monday through Saturday, 7 AM to 7 PM, and closed on Sunday. Call (713) 501-1214 during business hours to check availability and discuss your plumbing project.',
       },
     ],
   },
@@ -485,21 +579,21 @@ export const locations: LocationDef[] = [
     state: 'TX',
     county: 'Galveston County',
     intro:
-      'Alternative Plumbing Solutions provides plumbing services to Friendswood, Texas, and the surrounding area. From water heater repairs to drain cleaning and sewer line inspections, we help Friendswood homeowners and businesses keep their plumbing systems in good working order.',
+      'Alternative Plumbing Solutions serves Friendswood, TX as a dependable local plumber and plumbing contractor for homeowners and commercial properties. From water heater repair and drain cleaning to sewer line inspections and leak detection, we deliver practical solutions built to last.',
     localInfo:
-      'Friendswood sits between Pearland and the Clear Lake area, and many of its homes were built during periods of rapid growth. Aging water heaters, tree root intrusion in sewer lines, and fixture upgrades are common plumbing calls in the area.',
+      'Many homes in Friendswood feature mature landscaping and established plumbing systems. Tree root intrusion in sewer lines, aging tank and tankless water heaters, hidden pipe leaks, and kitchen or bathroom fixture upgrades are common plumbing needs for Friendswood property owners.',
     faqs: [
       {
-        q: 'Do you serve Friendswood?',
-        a: 'Yes. Friendswood is one of the communities we serve, alongside Pearland and the greater Houston area.',
+        q: 'Are you available as a local plumber in Friendswood, TX?',
+        a: 'Yes. Friendswood is a core service area for residential plumbing repair and commercial plumbing work. Call (713) 501-1214 to confirm scheduling for your address.',
       },
       {
-        q: 'Can you help with a water heater in Friendswood?',
-        a: 'Yes. We repair and replace water heaters in Friendswood homes, including traditional tank and tankless units.',
+        q: 'Can your Friendswood plumbers repair or replace water heaters?',
+        a: 'Yes. We provide water heater repair, water heater installation, and replacement for both tank and tankless units in Friendswood homes.',
       },
       {
-        q: 'Do you offer sewer line inspections in Friendswood?',
-        a: 'Yes. Our camera sewer line inspection service is available in Friendswood and throughout our service area.',
+        q: 'Do you offer sewer line inspection in Friendswood?',
+        a: 'Yes. Our camera-based sewer line inspection and diagnostics service is available throughout Friendswood to check for root intrusion, cracks, or blockages.',
       },
     ],
   },
@@ -509,21 +603,21 @@ export const locations: LocationDef[] = [
     state: 'TX',
     county: 'Harris County',
     intro:
-      'Alternative Plumbing Solutions serves the greater Houston area with reliable residential and commercial plumbing services. Whether you need a water heater repaired, a drain cleared, or a new gas line installed, our team brings the same straightforward, quality-focused workmanship to Houston customers as we do to our Pearland neighbors.',
+      'Alternative Plumbing Solutions serves residential and commercial customers across Houston, TX as a dedicated local plumber and plumbing contractor. Whether you need water heater repair, drain cleaning, leak detection, gas line installation, or new construction plumbing, our team focuses on straightforward service and lasting workmanship.',
     localInfo:
-      'Greater Houston\'s expansive footprint means plumbing challenges range widely — from slab leaks in older inner-loop homes to new construction plumbing in fast-growing suburbs. Heavy rains and shifting clay soil can stress underground lines, making sewer inspections and leak detection especially valuable for Houston-area properties.',
+      'Houston properties span historic neighborhoods and modern residential and commercial builds. Shifting soil conditions and heavy rainfall can stress underground water and sewer lines, making sewer camera inspections, hidden pipe leak detection, and repiping important services for Houston property owners.',
     faqs: [
       {
-        q: 'Which parts of Houston do you serve?',
-        a: 'We serve the greater Houston area from our Pearland base. Call us with your address and we will confirm service availability for your location.',
+        q: 'How can I confirm plumber availability for my address in Houston, TX?',
+        a: 'Call us directly at (713) 501-1214 with your Houston address and plumbing issue, and our team will confirm service availability and next steps.',
       },
       {
-        q: 'Can you help with slab leaks in Houston?',
-        a: 'Yes. We offer leak detection services that can identify slab leaks, along with the repairs needed to stop them.',
+        q: 'Can you help with slab leaks and hidden pipe leaks in Houston?',
+        a: 'Yes. We provide leak detection services in Houston to pinpoint hidden pipe leaks under slabs or behind walls and complete the necessary repairs.',
       },
       {
-        q: 'Do you handle commercial plumbing in Houston?',
-        a: 'Yes. We take on commercial plumbing work in addition to residential projects throughout the greater Houston area.',
+        q: 'Do you work as a commercial plumbing contractor in Houston?',
+        a: 'Yes. We handle both commercial plumbing repair and residential plumbing projects across Houston, including fixture installation and new construction plumbing.',
       },
     ],
   },
@@ -533,21 +627,21 @@ export const locations: LocationDef[] = [
     state: 'TX',
     county: 'Brazoria County',
     intro:
-      'Alternative Plumbing Solutions proudly serves homeowners and commercial property owners across Alvin, Texas. Located just south of our Pearland headquarters, Alvin is a thriving community where dependable, straightforward plumbing services are always just a quick call away.',
+      'Alternative Plumbing Solutions serves homeowners and commercial properties across Alvin, TX as a local plumber and plumbing contractor. Whether you need a drain cleared, a leaking pipe repaired, or a water heater replaced, straightforward plumbing help is just a phone call away.',
     localInfo:
-      'Alvin features a diverse mix of historic homes, ranch properties, and newer residential subdivisions. Shifting coastal prairie soils often lead to foundation movement and underground pipe strain, while older pipe materials in established neighborhoods require experienced sewer and water line repairs.',
+      'Alvin properties include historic homes, rural acreage residences, and newer subdivisions. Coastal soil movement can strain underground water and sewer lines, while older pipe systems often require targeted pipe repair, whole-home repiping, and sewer line inspection.',
     faqs: [
       {
-        q: 'Do you provide plumbing services in Alvin, TX?',
-        a: 'Yes. Alvin is an essential part of our core service area. Being based in nearby Pearland, we can dispatch plumbers quickly for repairs, installations, and maintenance.',
+        q: 'Do you provide local plumbing services in Alvin, TX?',
+        a: 'Yes. Alvin is part of our active Brazoria County service area for both residential and commercial plumbing repairs and installations.',
       },
       {
-        q: 'Can you handle water heater replacement in Alvin?',
-        a: 'Yes. We install and repair both traditional tank water heaters and high-efficiency tankless models for homes and businesses throughout Alvin.',
+        q: 'Can you handle water heater repair and replacement in Alvin?',
+        a: 'Yes. We repair and install both traditional tank water heaters and tankless models for homes and businesses in Alvin.',
       },
       {
-        q: 'Do you offer drain and sewer cleaning in Alvin?',
-        a: 'Yes. Our team provides camera inspections and drain cleaning for stubborn clogs, root intrusions, and line backups across Alvin.',
+        q: 'Do you offer drain cleaning and sewer inspection in Alvin?',
+        a: 'Yes. We clear clogged drains and run sewer camera inspections across Alvin to pinpoint blockages, root intrusion, and damaged lines.',
       },
     ],
   },
@@ -557,21 +651,21 @@ export const locations: LocationDef[] = [
     state: 'TX',
     county: 'Brazoria County',
     intro:
-      'Alternative Plumbing Solutions delivers full-service residential and commercial plumbing to Manvel, Texas. As one of Brazoria County\'s fastest-growing communities right next door to Pearland, Manvel property owners rely on our licensed team for everything from water heater installs to new construction plumbing.',
+      'Alternative Plumbing Solutions serves Manvel, TX as a full-service local plumber and plumbing contractor for residential and commercial properties. From water heater installation and gas line work to drain cleaning and new construction plumbing, we help Manvel homeowners and builders keep projects running smoothly.',
     localInfo:
-      'With rapid residential growth and new master-planned developments throughout Manvel, homeowners frequently require fixture upgrades, water filtration, tankless water heater conversions, and gas line additions for generators and outdoor kitchens.',
+      'With rapid growth and new residential developments throughout Manvel, property owners frequently need fixture installations, gas piping for appliances and backup generators, tank and tankless water heater setups, and new construction plumbing coordination.',
     faqs: [
       {
-        q: 'How fast can a plumber arrive in Manvel?',
-        a: 'Because our shop is in neighboring Pearland, we can reach homes and commercial jobs in Manvel in just minutes.',
+        q: 'How do I schedule a plumber in Manvel, TX?',
+        a: 'Call us Monday through Saturday between 7 AM and 7 PM at (713) 501-1214 to discuss your plumbing needs in Manvel and arrange an appointment.',
       },
       {
-        q: 'Do you do plumbing for new construction in Manvel?',
-        a: 'Yes. We specialize in ground-up residential and commercial plumbing installation for new homes, additions, and commercial build-outs in Manvel.',
+        q: 'Do you handle new construction plumbing in Manvel?',
+        a: 'Yes. We provide underground rough-in, top-out, and final fixture installation for residential new construction and commercial build-outs in Manvel.',
       },
       {
-        q: 'Can you inspect sewer lines in new or older Manvel homes?',
-        a: 'Yes. Our HD camera inspections identify cracked pipes, shifting lines, and root damage without damaging your lawn or foundation.',
+        q: 'Can you inspect sewer lines in Manvel homes?',
+        a: 'Yes. Our camera sewer line inspection service identifies cracks, shifting lines, and blockages without unnecessary digging.',
       },
     ],
   },
@@ -581,21 +675,21 @@ export const locations: LocationDef[] = [
     state: 'TX',
     county: 'Galveston County',
     intro:
-      'Alternative Plumbing Solutions provides trusted plumbing solutions across League City, Texas. Serving the Bay Area with transparent pricing and top-tier workmanship, we help League City families and businesses resolve plumbing issues efficiently.',
+      'Alternative Plumbing Solutions provides reliable residential and commercial service across League City, TX as a trusted local plumber and plumbing contractor. With clear communication and practical solutions, we help League City homeowners and businesses solve plumbing problems properly.',
     localInfo:
-      'League City\'s coastal climate and proximity to Clear Lake make corrosion resistance and proper water heater maintenance vital. Many homes in the area benefit from tankless upgrades, sewer line camera evaluations, and prompt slab leak detection.',
+      'League City neighborhoods experience humid coastal conditions and mature soil shifts that affect outdoor piping, water heaters, and sewer mains. Regular water heater service, sewer camera evaluations, and prompt leak detection help protect League City properties.',
     faqs: [
       {
-        q: 'Do you service residential properties in League City?',
-        a: 'Yes. We serve neighborhoods across League City, from South Shore Harbour to Victory Lakes and older historic districts.',
+        q: 'Which residential plumbing services do you offer in League City, TX?',
+        a: 'We serve neighborhoods across League City with water heater repair, drain cleaning, sewer inspection, leak detection, pipe repair, fixture installation, toilet repair, and gas piping.',
       },
       {
-        q: 'What should I do if my water heater leaks in League City?',
-        a: 'Shut off the water intake and call us immediately at (713) 501-1214. We offer same-day diagnosis and replacement options.',
+        q: 'What should I do if my water heater is leaking in League City?',
+        a: 'Turn off the cold water shutoff valve to the tank and call (713) 501-1214 during business hours so we can arrange an inspection and discuss repair or replacement.',
       },
       {
-        q: 'Do you work with tankless water heaters in League City?',
-        a: 'Yes. We install, flush, and service all major brands of tankless water heaters suited for high-demand coastal households.',
+        q: 'Do you repair and install tankless water heaters in League City?',
+        a: 'Yes. We install and service both tank and tankless water heaters for households and commercial spaces in League City.',
       },
     ],
   },
@@ -605,21 +699,21 @@ export const locations: LocationDef[] = [
     state: 'TX',
     county: 'Harris County',
     intro:
-      'Alternative Plumbing Solutions delivers reliable residential and light commercial plumbing services to Pasadena, Texas. Conveniently located just north of Pearland, our team brings dependable repairs, honest estimates, and quality craftsmanship to Pasadena properties.',
+      'Alternative Plumbing Solutions serves Pasadena, TX as an experienced local plumber and plumbing contractor for homes and commercial facilities. Our team brings honest diagnostics, practical repair options, and reliable installations to Pasadena properties.',
     localInfo:
-      'Pasadena includes established residential subdivisions alongside thriving commercial corridors. Cast iron pipe decay, aging galvanized supply lines, and stubborn sewer line clogs are common challenges that our diagnostic tools and repiping expertise solve.',
+      'Pasadena encompasses established residential subdivisions alongside active commercial corridors. Aging galvanized supply lines, corroded drain pipes, low water pressure, and main sewer blockages are frequent challenges solved through targeted repairs, repiping, and drain cleaning.',
     faqs: [
       {
-        q: 'Do you handle older home plumbing repairs in Pasadena?',
-        a: 'Yes. We frequently repair and repipe older Pasadena residences dealing with low water pressure, rust, or failing sewer pipes.',
+        q: 'Do you repair plumbing in older Pasadena homes?',
+        a: 'Yes. We regularly work on older Pasadena homes experiencing low water pressure, rusted lines, hidden leaks, or aging sewer drains.',
       },
       {
-        q: 'Are commercial plumbing services available in Pasadena?',
-        a: 'Yes. We support Pasadena businesses with commercial drain cleaning, gas piping, fixture replacements, and routine maintenance.',
+        q: 'Are commercial plumbing services available in Pasadena, TX?',
+        a: 'Yes. As a commercial plumbing contractor, we support Pasadena businesses with drain cleaning, gas piping, fixture installation, and plumbing repairs.',
       },
       {
-        q: 'Can you locate hidden leaks under foundations in Pasadena?',
-        a: 'Yes. Our non-invasive electronic leak detection pinpoints slab leaks quickly to minimize property disruption.',
+        q: 'Can you locate hidden slab or pipe leaks in Pasadena?',
+        a: 'Yes. We use diagnostic leak detection methods in Pasadena to locate hidden water leaks before completing targeted repairs.',
       },
     ],
   },
@@ -629,21 +723,21 @@ export const locations: LocationDef[] = [
     state: 'TX',
     county: 'Harris County',
     intro:
-      'Alternative Plumbing Solutions provides premier plumbing services to Webster, Texas. Situated in the heart of the Clear Lake medical and commercial hub, Webster homeowners and business operators count on us for fast, professional plumbing repairs and replacements.',
+      'Alternative Plumbing Solutions provides residential and commercial plumbing services in Webster, TX as a local plumber and plumbing contractor. Webster homeowners and business operators count on our team for straightforward troubleshooting, pipe repairs, water heaters, and installations.',
     localInfo:
-      'Webster\'s bustling commercial centers, medical complexes, and residential developments require responsive plumbing support. We specialize in high-capacity water heating, preventative drain cleaning, and precision gas pipe installations.',
+      'Webster features bustling commercial centers, retail properties, and residential neighborhoods that depend on reliable plumbing systems. Water heater maintenance, commercial drain cleaning, toilet and fixture replacements, and code-compliant gas piping are key services across Webster.',
     faqs: [
       {
-        q: 'Do you provide same-day plumbing service in Webster?',
-        a: 'Yes. Whenever possible we offer same-day scheduling for urgent water heater failures, leaks, and sewer clogs in Webster.',
+        q: 'How can I book a plumber in Webster, TX?',
+        a: 'Call (713) 501-1214 Monday through Saturday, 7 AM to 7 PM. We handle all scheduling by phone so you speak directly with our plumbing team.',
       },
       {
-        q: 'Can you install gas lines for generators and appliances in Webster?',
-        a: 'Yes. We are certified for gas piping and sizing for whole-home generators, gas ranges, and commercial equipment.',
+        q: 'Can you install gas lines for appliances and generators in Webster?',
+        a: 'Yes. We provide gas line installation, extension, and pressure testing for ranges, dryers, water heaters, and backup natural gas generators in Webster.',
       },
       {
-        q: 'What plumbing warranties do you offer in Webster?',
-        a: 'All of our repairs and installations come backed by our workmanship guarantee and manufacturer warranties on installed parts.',
+        q: 'Do you offer commercial plumbing repairs in Webster?',
+        a: 'Yes. We handle commercial drain clogs, fixture replacements, water heaters, and new commercial plumbing installations in Webster.',
       },
     ],
   },
@@ -653,21 +747,21 @@ export const locations: LocationDef[] = [
     state: 'TX',
     county: 'Harris County',
     intro:
-      'Alternative Plumbing Solutions provides comprehensive plumbing care to Clear Lake, Texas and the Bay Area. From water heater installations to sewer line inspections, we deliver courteous, dependable plumbing for Clear Lake homeowners.',
+      'Alternative Plumbing Solutions serves Clear Lake, TX as a dependable local plumber and plumbing contractor for homeowners and businesses. From water heater replacements and drain cleaning to sewer camera inspections and repiping, we keep Clear Lake plumbing systems running smoothly.',
     localInfo:
-      'Clear Lake\'s coastal conditions and mature tree-lined neighborhoods frequently encounter tree root intrusions in sewer mains and mineral buildup in water heaters. Our video inspections and descaling services keep lines flowing smoothly.',
+      'Clear Lake neighborhoods with mature trees often experience tree root intrusion in main sewer lines alongside normal wear in water heaters and supply lines. Video sewer inspections, drain blockage removal, and fixture updates help prevent disruptive plumbing backups.',
     faqs: [
       {
-        q: 'Do you service homes in the Clear Lake Houston area?',
-        a: 'Yes. We cover Clear Lake City, Bay Forest, Bay Knoll, and surrounding communities with full plumbing repair and replacement.',
+        q: 'Do you provide local plumbing services throughout Clear Lake, TX?',
+        a: 'Yes. We serve residential and commercial properties across the Clear Lake community with full plumbing repairs, inspections, and installations.',
       },
       {
-        q: 'How do I know if tree roots are in my Clear Lake sewer line?',
-        a: 'Slow drains, gurgling toilets, or repeated backups are classic signs. We run a camera down the cleanout to verify and clear the blockage.',
+        q: 'How can I tell if tree roots are affecting my Clear Lake sewer line?',
+        a: 'Recurring slow drains, gurgling toilets, or multiple fixture backups can point to root intrusion. We can run a sewer camera inspection through a cleanout to check the line.',
       },
       {
-        q: 'Can you replace traditional water heaters with tankless in Clear Lake?',
-        a: 'Yes. We evaluate your electrical and gas capacity and install high-efficiency tankless units for endless hot water.',
+        q: 'Can you repair or replace tankless water heaters in Clear Lake?',
+        a: 'Yes. We diagnose, repair, and install both standard tank water heaters and tankless models for Clear Lake homes.',
       },
     ],
   },
@@ -677,21 +771,21 @@ export const locations: LocationDef[] = [
     state: 'TX',
     county: 'Fort Bend County',
     intro:
-      'Alternative Plumbing Solutions extends our trusted plumbing expertise to Sugar Land, Texas. Homeowners and commercial facility managers in Sugar Land depend on our experienced plumbers for clean, efficient, and cost-effective plumbing repairs.',
+      'Alternative Plumbing Solutions serves Sugar Land, TX as a residential and commercial local plumber and plumbing contractor. Homeowners and property managers in Sugar Land rely on our team for leak detection, water heater service, whole-home repiping, and general plumbing repairs.',
     localInfo:
-      'Sugar Land properties demand high-efficiency water heating solutions, whole-home repiping, and accurate leak detection to protect upscale finishes and foundations from water damage.',
+      'Sugar Land properties benefit from accurate hidden leak detection, modern water heater upgrades, plumbing fixture installations, and durable pipe replacements that help protect interior finishes and foundations from water damage.',
     faqs: [
       {
-        q: 'Do you provide plumbing services in Sugar Land?',
-        a: 'Yes. We dispatch to Sugar Land for water heater replacements, leak detection, sewer repairs, and general plumbing needs.',
+        q: 'Do you serve homes and businesses in Sugar Land, TX?',
+        a: 'Yes. Call (713) 501-1214 with your Sugar Land address and plumbing concern to confirm scheduling for water heaters, leak detection, drain cleaning, or repairs.',
       },
       {
-        q: 'Can you detect slab leaks in Sugar Land homes?',
-        a: 'Yes. We use advanced acoustic and thermal detection to locate slab leaks accurately without unnecessary floor demolition.',
+        q: 'Can you locate slab leaks in Sugar Land homes?',
+        a: 'Yes. We provide leak detection in Sugar Land to isolate leaks beneath concrete slabs or behind walls so repairs remain focused.',
       },
       {
-        q: 'Do you install water filtration and softening systems in Sugar Land?',
-        a: 'Yes. We install whole-home water treatment systems to protect your fixtures and pipes from hard water buildup.',
+        q: 'Do you install plumbing fixtures and toilets in Sugar Land?',
+        a: 'Yes. We install faucets, sinks, bathtubs, and toilets cleanly and check all supply and drain connections for leaks.',
       },
     ],
   },
@@ -772,4 +866,93 @@ export function parseServiceLocationSlug(pathSlug: string): { service: ServiceDe
     }
   }
   return null;
+}
+
+const relatedServicesMap: Record<string, string[]> = {
+  'drain-cleaning': [
+    'plumbing-repair',
+    'sewer-line-inspection',
+    'leak-detection',
+    'pipe-repair-and-repiping',
+  ],
+  'water-heater-repair-and-installation': [
+    'plumbing-repair',
+    'gas-piping',
+    'leak-detection',
+    'pipe-repair-and-repiping',
+  ],
+  'sewer-line-inspection': [
+    'drain-cleaning',
+    'pipe-repair-and-repiping',
+    'leak-detection',
+    'plumbing-repair',
+  ],
+  'gas-piping': [
+    'water-heater-repair-and-installation',
+    'new-construction-plumbing',
+    'plumbing-repair',
+  ],
+  'fixture-installation': [
+    'toilet-repair-and-installation',
+    'plumbing-repair',
+    'new-construction-plumbing',
+    'drain-cleaning',
+  ],
+  'new-construction-plumbing': [
+    'gas-piping',
+    'fixture-installation',
+    'pipe-repair-and-repiping',
+    'water-heater-repair-and-installation',
+  ],
+  'plumbing-repair': [
+    'leak-detection',
+    'pipe-repair-and-repiping',
+    'drain-cleaning',
+    'toilet-repair-and-installation',
+  ],
+  'leak-detection': [
+    'pipe-repair-and-repiping',
+    'plumbing-repair',
+    'sewer-line-inspection',
+    'water-heater-repair-and-installation',
+  ],
+  'pipe-repair-and-repiping': [
+    'leak-detection',
+    'plumbing-repair',
+    'sewer-line-inspection',
+    'new-construction-plumbing',
+  ],
+  'toilet-repair-and-installation': [
+    'drain-cleaning',
+    'fixture-installation',
+    'plumbing-repair',
+    'leak-detection',
+  ],
+};
+
+const nearbyLocationsMap: Record<string, string[]> = {
+  'pearland-tx': ['friendswood-tx', 'manvel-tx', 'alvin-tx'],
+  'friendswood-tx': ['pearland-tx', 'league-city-tx', 'webster-tx'],
+  'houston-tx': ['pearland-tx', 'pasadena-tx', 'sugar-land-tx'],
+  'alvin-tx': ['manvel-tx', 'pearland-tx', 'friendswood-tx'],
+  'manvel-tx': ['pearland-tx', 'alvin-tx', 'sugar-land-tx'],
+  'league-city-tx': ['friendswood-tx', 'webster-tx', 'clear-lake-tx'],
+  'pasadena-tx': ['pearland-tx', 'clear-lake-tx', 'houston-tx'],
+  'webster-tx': ['clear-lake-tx', 'friendswood-tx', 'league-city-tx'],
+  'clear-lake-tx': ['webster-tx', 'league-city-tx', 'pasadena-tx'],
+  'sugar-land-tx': ['houston-tx', 'pearland-tx', 'manvel-tx'],
+};
+
+export function getRelatedServices(serviceSlug: string): ServiceDef[] {
+  const slugs = relatedServicesMap[serviceSlug] || [];
+  return slugs
+    .map((slug) => services.find((s) => s.slug === slug))
+    .filter((s): s is ServiceDef => Boolean(s));
+}
+
+export function getNearbyLocations(locationSlug: string): LocationDef[] {
+  const slugs = nearbyLocationsMap[locationSlug] || [];
+  return slugs
+    .map((slug) => locations.find((l) => l.slug === slug))
+    .filter((l): l is LocationDef => Boolean(l));
 }

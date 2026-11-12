@@ -11,6 +11,7 @@ export default function NotFoundPage() {
         title="Page Not Found | Alternative Plumbing Solutions, LLC"
         description="The page you are looking for could not be found. Call us or browse our plumbing services and service areas."
         path="/404"
+        noindex
       />
 
       <section className="relative flex min-h-[70vh] items-center overflow-hidden bg-navy-950">

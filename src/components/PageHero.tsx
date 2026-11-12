@@ -23,8 +23,10 @@ export default function PageHero({ eyebrow, title, description, breadcrumbs, ima
           <img
             src={image}
             alt=""
+            aria-hidden="true"
             className="absolute inset-0 h-full w-full object-cover opacity-20"
             loading="eager"
+            decoding="async"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-navy-950 via-navy-900/95 to-navy-900/70" />
         </>

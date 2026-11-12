@@ -1,13 +1,20 @@
 import { useParams, useLocation, Link, Navigate } from 'react-router-dom';
-import { ArrowRight, MapPin, Phone, Clock, Building2 } from 'lucide-react';
-import Seo, { breadcrumbSchema, localBusinessSchema } from '@/components/Seo';
+import { ArrowRight, MapPin, Phone, Clock, Building2, BookOpen } from 'lucide-react';
+import Seo, { breadcrumbSchema, serviceSchema } from '@/components/Seo';
 import PageHero from '@/components/PageHero';
 import CallButton from '@/components/CallButton';
 import CtaSection from '@/components/CtaSection';
 import FaqList from '@/components/FaqList';
 import { ServiceIcon } from '@/components/ServiceIcon';
 import {
-  locations, services, serviceInLocation, serviceLocationSlug, business, findLocation, getLocationUrl,
+  services,
+  serviceInLocation,
+  serviceLocationSlug,
+  business,
+  findLocation,
+  getLocationUrl,
+  getNearbyLocations,
+  getLocalizedServiceSummary,
 } from '@/data/business';
 
 export default function ServiceAreaDetailPage() {
@@ -27,18 +34,24 @@ export default function ServiceAreaDetailPage() {
 
   const availableSlugs = serviceInLocation[location.slug] ?? [];
   const availableServices = services.filter((s) => availableSlugs.includes(s.slug));
+  const nearbyLocations = getNearbyLocations(location.slug);
+
+  const seoTitle = `Plumber in ${location.city}, ${location.state} | ${business.shortName}`;
+  const seoDesc = `Looking for a local plumber in ${location.city}, ${location.state}? We handle plumbing repairs, drain cleaning, water heaters, and leak detection. Call ${business.phone}.`;
 
   const jsonLd = [
-    localBusinessSchema,
+    serviceSchema(
+      `Plumber in ${location.city}, ${location.state}`,
+      seoDesc,
+      canonicalUrl,
+      `${location.city}, ${location.state}`
+    ),
     breadcrumbSchema([
       { name: 'Home', path: '/' },
       { name: 'Service Areas', path: '/service-areas' },
-      { name: `${location.city}, ${location.state}`, path: canonicalUrl },
+      { name: `Plumber in ${location.city}, ${location.state}`, path: canonicalUrl },
     ]),
   ];
-
-  const seoTitle = `Plumber in ${location.city}, ${location.state} | ${business.shortName}`;
-  const seoDesc = `Alternative Plumbing Solutions provides plumbing services in ${location.city}, ${location.state} — water heater repair, drain cleaning, sewer line inspection, gas piping, and more. Call ${business.phone}.`;
 
   return (
     <>
@@ -50,9 +63,9 @@ export default function ServiceAreaDetailPage() {
       />
 
       <PageHero
-        eyebrow="Service Area"
-        title={`Plumbing Services in ${location.city}, ${location.state}`}
-        description={`Alternative Plumbing Solutions serves ${location.city} and the surrounding ${location.county} area with residential and commercial plumbing. Call us for fast, reliable service.`}
+        eyebrow="Local Plumber & Plumbing Contractor"
+        title={`Plumber in ${location.city}, ${location.state}`}
+        description={`Alternative Plumbing Solutions is a local plumber and plumbing contractor serving residential and commercial customers in ${location.city}, ${location.state}. Call ${business.phone} for plumbing services and estimates.`}
         breadcrumbs={[
           { name: 'Home', path: '/' },
           { name: 'Service Areas', path: '/service-areas' },
@@ -69,15 +82,15 @@ export default function ServiceAreaDetailPage() {
         <div className="container-base grid gap-12 lg:grid-cols-3">
           <div className="lg:col-span-2">
             <div className="prose-plumbing max-w-none">
-              <h2>Your Local {location.city} Plumber</h2>
+              <h2>Your Local Plumber &amp; Plumbing Contractor in {location.city}</h2>
               <p>{location.intro}</p>
-              <h2>Plumbing in {location.city}: What to Know</h2>
+              <h2>Plumbing in {location.city}, {location.state}: What to Know</h2>
               <p>{location.localInfo}</p>
             </div>
 
             {/* Services grid */}
             <h2 className="mt-10 font-display text-2xl font-bold text-navy-900">
-              Plumbing Services Available in {location.city}
+              Plumbing Services Available in {location.city}, {location.state}
             </h2>
             <div className="mt-6 grid gap-4 sm:grid-cols-2">
               {availableServices.map((s) => (
@@ -89,15 +102,19 @@ export default function ServiceAreaDetailPage() {
                     <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-navy-50 text-navy-700">
                       <ServiceIcon name={s.icon} className="h-5 w-5" />
                     </span>
-                    <h3 className="font-display text-base font-semibold text-navy-900">{s.shortName}</h3>
+                    <h3 className="font-display text-base font-semibold text-navy-900">
+                      {s.seo.primaryServiceName}
+                    </h3>
                   </div>
-                  <p className="mt-3 flex-1 text-sm text-navy-600 leading-relaxed">{s.summary}</p>
+                  <p className="mt-3 flex-1 text-sm text-navy-600 leading-relaxed">
+                    {getLocalizedServiceSummary(s, location.city)}
+                  </p>
                   <div className="mt-4 flex items-center">
                     <Link
                       to={`/${serviceLocationSlug(s.slug, location.slug)}`}
                       className="inline-flex items-center gap-1.5 text-sm font-semibold text-aqua-600 hover:text-aqua-700"
                     >
-                      View {s.shortName} in {location.city}
+                      {s.seo.primaryServiceName} in {location.city}
                       <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                     </Link>
                   </div>
@@ -111,10 +128,12 @@ export default function ServiceAreaDetailPage() {
             <div className="sticky top-24 space-y-6">
               <div className="rounded-2xl bg-navy-900 p-6 text-white shadow-lg">
                 <MapPin className="h-8 w-8 text-aqua-400" />
-                <h3 className="mt-4 font-display text-lg font-semibold">Based in Pearland, TX</h3>
+                <h3 className="mt-4 font-display text-lg font-semibold">
+                  Plumber in {location.city}, {location.state}
+                </h3>
                 <p className="mt-2 text-sm text-navy-200">
-                  We serve {location.city} from our Pearland base — so we can respond quickly to
-                  your plumbing call.
+                  Serving residential and commercial properties in {location.city} and{' '}
+                  {location.county}. Call to confirm availability or request an estimate.
                 </p>
                 <a
                   href={`tel:${business.phoneTel}`}
@@ -137,22 +156,46 @@ export default function ServiceAreaDetailPage() {
               </div>
 
               <div className="rounded-2xl border border-navy-100 bg-white p-6 shadow-sm">
-                <h3 className="font-display text-lg font-semibold text-navy-900">Other Service Areas</h3>
-                <ul className="mt-4 space-y-2">
-                  {locations.filter((l) => l.slug !== location.slug).map((l) => (
-                    <li key={l.slug}>
+                <h3 className="font-display text-lg font-semibold text-navy-900">
+                  Nearby Service Areas
+                </h3>
+                <p className="mt-2 text-sm text-navy-600">
+                  Explore nearby cities we serve around {location.city}, {location.state}:
+                </p>
+                <ul className="mt-4 space-y-2.5">
+                  {nearbyLocations.map((nearby) => (
+                    <li key={nearby.slug}>
                       <Link
-                        to={getLocationUrl(l.slug)}
-                        className="flex items-center justify-between text-sm text-navy-700 hover:text-aqua-600"
+                        to={getLocationUrl(nearby.slug)}
+                        className="inline-flex items-center gap-1.5 text-sm font-semibold text-aqua-600 hover:text-aqua-700"
                       >
-                        <span className="flex items-center gap-2">
-                          <MapPin className="h-4 w-4 text-aqua-500" /> {l.city}, {l.state}
-                        </span>
-                        <ArrowRight className="h-4 w-4 text-navy-300" />
+                        <MapPin className="h-3.5 w-3.5" />
+                        Plumber in {nearby.city}, {nearby.state}
                       </Link>
                     </li>
                   ))}
                 </ul>
+                <div className="mt-5 space-y-2 border-t border-navy-100 pt-4">
+                  <Link
+                    to="/service-areas"
+                    className="flex items-center gap-1.5 text-xs font-semibold text-navy-700 hover:text-aqua-600"
+                  >
+                    All Service Areas Directory <ArrowRight className="h-3.5 w-3.5" />
+                  </Link>
+                  <Link
+                    to="/services"
+                    className="flex items-center gap-1.5 text-xs font-semibold text-navy-700 hover:text-aqua-600"
+                  >
+                    All Plumbing Services Overview <ArrowRight className="h-3.5 w-3.5" />
+                  </Link>
+                  <Link
+                    to="/guides"
+                    className="flex items-center gap-1.5 text-xs font-semibold text-navy-700 hover:text-aqua-600"
+                  >
+                    <BookOpen className="h-3.5 w-3.5 text-aqua-600" />
+                    Helpful Plumbing Guides
+                  </Link>
+                </div>
               </div>
             </div>
           </aside>
@@ -163,7 +206,7 @@ export default function ServiceAreaDetailPage() {
       <section className="bg-navy-50 py-20 lg:py-28">
         <div className="container-base">
           <div className="mx-auto max-w-2xl text-center">
-            <p className="eyebrow justify-center">{location.city} Plumbing Questions</p>
+            <p className="eyebrow justify-center">{location.city}, {location.state} — FAQ</p>
             <h2 className="mt-3 font-display text-3xl font-bold text-navy-900 text-balance sm:text-4xl">
               Frequently Asked Questions
             </h2>
@@ -173,8 +216,8 @@ export default function ServiceAreaDetailPage() {
       </section>
 
       <CtaSection
-        title={`Need a Plumber in ${location.city}?`}
-        subtitle={`Call us now — we serve ${location.city} and the surrounding ${location.county} area.`}
+        title={`Need a Plumber in ${location.city}, ${location.state}?`}
+        subtitle={`Call ${business.phone} to reach a local plumber serving ${location.city} and ${location.county}.`}
       />
     </>
   );
