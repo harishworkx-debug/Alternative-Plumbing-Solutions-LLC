@@ -108,10 +108,10 @@ export default function LandingAbout() {
               <div className="flex items-start gap-3">
                 <CheckCircle2 className="h-5 w-5 text-aqua-600 flex-shrink-0 mt-0.5" />
                 <div>
-                  <h4 className="text-sm font-bold text-navy-950">Clean Worksite Guarantee</h4>
+                  <h4 className="text-sm font-bold text-navy-950">Worksite Protection &amp; Cleanup</h4>
                   <p className="mt-0.5 text-xs text-navy-600">
-                    Shoe covers, floor protection tarps, and thorough post-repair cleanup on every
-                    job.
+                    Use of protective floor tarps, shoe covers, and thorough post-repair cleanup
+                    across all active work areas.
                   </p>
                 </div>
               </div>
