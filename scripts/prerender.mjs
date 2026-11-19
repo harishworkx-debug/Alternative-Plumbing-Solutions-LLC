@@ -216,7 +216,10 @@ async function main() {
 
     const lastmod = new Date().toISOString().slice(0, 10);
     const sitemapXml = buildSitemapXml(siteUrl, indexableRoutes, lastmod);
-    fs.writeFileSync(path.join(publicDir, 'sitemap.xml'), sitemapXml, 'utf-8');
+    // Preserve existing public/sitemap.xml so source repository file remains untouched
+    if (!fs.existsSync(path.join(publicDir, 'sitemap.xml'))) {
+      fs.writeFileSync(path.join(publicDir, 'sitemap.xml'), sitemapXml, 'utf-8');
+    }
     fs.writeFileSync(path.join(distDir, 'sitemap.xml'), sitemapXml, 'utf-8');
 
     console.log(
