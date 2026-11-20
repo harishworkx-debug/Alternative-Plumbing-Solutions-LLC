@@ -7,9 +7,9 @@ export const business = {
   legalName: 'Alternative Plumbing Solutions, LLC',
   shortName: 'Alternative Plumbing Solutions',
   tagline: 'Fast, Affordable Plumbing in Pearland & Greater Houston',
-  phone: '(713) 501-1214',
-  phoneRaw: '713-501-1214',
-  phoneTel: '+17135011214',
+  phone: '(281) 516-5058',
+  phoneRaw: '281-516-5058',
+  phoneTel: '+12815165058',
   email: 'cminhtown@gmail.com',
   website: 'https://www.alternativeplumbingsolutions.com',
   address: {
@@ -76,7 +76,7 @@ export const services: ServiceDef[] = [
       serviceSummaryTemplate:
         'Water heater repair, water heater installation, and replacement for residential and commercial properties in {city}, TX.',
       metaDescriptionTemplate:
-        'Need water heater repair in {city}, TX? We provide tank & tankless water heater installation, replacement, and diagnostics. Call (713) 501-1214.',
+        'Need water heater repair in {city}, TX? We provide tank & tankless water heater installation, replacement, and diagnostics. Call (281) 516-5058.',
     },
     image:
       'https://images.pexels.com/photos/34938439/pexels-photo-34938439.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
@@ -170,7 +170,7 @@ export const services: ServiceDef[] = [
       serviceSummaryTemplate:
         'Sewer line inspection, sewer camera inspection, and sewer diagnostics to evaluate underground lines in {city}, TX.',
       metaDescriptionTemplate:
-        'Need sewer line inspection in {city}, TX? We run sewer camera diagnostics to find roots, cracks, and blockages early. Call (713) 501-1214.',
+        'Need sewer line inspection in {city}, TX? We run sewer camera diagnostics to find roots, cracks, and blockages early. Call (281) 516-5058.',
     },
     image:
       'https://images.pexels.com/photos/29274530/pexels-photo-29274530.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
@@ -216,7 +216,7 @@ export const services: ServiceDef[] = [
       serviceSummaryTemplate:
         'Gas piping, gas line installation, and gas pipe repair with pressure-tested connections in {city}, TX.',
       metaDescriptionTemplate:
-        'Need gas piping in {city}, TX? Alternative Plumbing Solutions handles gas line installation, gas pipe repair, and pressure testing. Call (713) 501-1214.',
+        'Need gas piping in {city}, TX? Alternative Plumbing Solutions handles gas line installation, gas pipe repair, and pressure testing. Call (281) 516-5058.',
     },
     image:
       'https://images.pexels.com/photos/38730229/pexels-photo-38730229.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
@@ -262,7 +262,7 @@ export const services: ServiceDef[] = [
       serviceSummaryTemplate:
         'Plumbing fixture installation, faucet installation, and sink installation for bathrooms, kitchens, and remodels in {city}, TX.',
       metaDescriptionTemplate:
-        'Need plumbing fixture installation in {city}, TX? We install kitchen faucets, bathroom sinks, bathtubs, and remodel fixtures cleanly. Call (713) 501-1214.',
+        'Need plumbing fixture installation in {city}, TX? We install kitchen faucets, bathroom sinks, bathtubs, and remodel fixtures cleanly. Call (281) 516-5058.',
     },
     image:
       'https://images.pexels.com/photos/12196323/pexels-photo-12196323.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
@@ -308,7 +308,7 @@ export const services: ServiceDef[] = [
       serviceSummaryTemplate:
         'New construction plumbing and full plumbing installation for new homes, remodels, and commercial builds in {city}, TX.',
       metaDescriptionTemplate:
-        'Need new construction plumbing in {city}, TX? We provide residential and commercial plumbing installation from rough-in to finish. Call (713) 501-1214.',
+        'Need new construction plumbing in {city}, TX? We provide residential and commercial plumbing installation from rough-in to finish. Call (281) 516-5058.',
     },
     image:
       'https://images.pexels.com/photos/6419128/pexels-photo-6419128.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
@@ -354,7 +354,7 @@ export const services: ServiceDef[] = [
       serviceSummaryTemplate:
         'Plumbing repair and residential plumbing repair for leaks, faucets, low water pressure, and pipe problems in {city}, TX.',
       metaDescriptionTemplate:
-        'Need plumbing repair in {city}, TX? We offer residential plumbing repair for leaks, faucets, low pressure, and pipe troubleshooting. Call (713) 501-1214.',
+        'Need plumbing repair in {city}, TX? We offer residential plumbing repair for leaks, faucets, low pressure, and pipe troubleshooting. Call (281) 516-5058.',
     },
     image:
       'https://images.pexels.com/photos/16509869/pexels-photo-16509869.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
@@ -401,7 +401,7 @@ export const services: ServiceDef[] = [
       serviceSummaryTemplate:
         'Leak detection, water leak detection, and slab leak detection to locate hidden pipe leaks in {city}, TX.',
       metaDescriptionTemplate:
-        'Looking for leak detection in {city}, TX? We locate hidden pipe leaks and slab leaks before water damage spreads. Call (713) 501-1214.',
+        'Looking for leak detection in {city}, TX? We locate hidden pipe leaks and slab leaks before water damage spreads. Call (281) 516-5058.',
     },
     image:
       'https://images.pexels.com/photos/18274115/pexels-photo-18274115.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
@@ -447,7 +447,7 @@ export const services: ServiceDef[] = [
       serviceSummaryTemplate:
         'Pipe repair and repiping, whole house repiping, and water pipe replacement for burst or aging pipes in {city}, TX.',
       metaDescriptionTemplate:
-        'Need pipe repair and repiping in {city}, TX? We offer whole house repiping and water pipe replacement for leaking or corroded pipes. Call (713) 501-1214.',
+        'Need pipe repair and repiping in {city}, TX? We offer whole house repiping and water pipe replacement for leaking or corroded pipes. Call (281) 516-5058.',
     },
     image:
       'https://images.pexels.com/photos/6419128/pexels-photo-6419128.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
@@ -467,7 +467,7 @@ export const services: ServiceDef[] = [
     faqs: [
       {
         q: 'What should I do if a pipe bursts in my home?',
-        a: 'Immediately turn off your main water shutoff valve to stop incoming water, open faucets to relieve residual pressure, and call Alternative Plumbing Solutions at (713) 501-1214.',
+        a: 'Immediately turn off your main water shutoff valve to stop incoming water, open faucets to relieve residual pressure, and call Alternative Plumbing Solutions at (281) 516-5058.',
       },
       {
         q: 'When does a house need whole house repiping instead of a spot repair?',
@@ -494,7 +494,7 @@ export const services: ServiceDef[] = [
       serviceSummaryTemplate:
         'Toilet repair, toilet installation, and running toilet repair for wax seals, tanks, and clogs in {city}, TX.',
       metaDescriptionTemplate:
-        'Need toilet repair in {city}, TX? We provide toilet installation, toilet replacement, wax ring seal repair, and clog clearing. Call (713) 501-1214.',
+        'Need toilet repair in {city}, TX? We provide toilet installation, toilet replacement, wax ring seal repair, and clog clearing. Call (281) 516-5058.',
     },
     image:
       'https://images.pexels.com/photos/1454806/pexels-photo-1454806.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
@@ -569,7 +569,7 @@ export const locations: LocationDef[] = [
       },
       {
         q: 'What hours is a local plumber available in Pearland?',
-        a: 'We are open Monday through Saturday, 7 AM to 7 PM, and closed on Sunday. Call (713) 501-1214 during business hours to check availability and discuss your plumbing project.',
+        a: 'We are open Monday through Saturday, 7 AM to 7 PM, and closed on Sunday. Call (281) 516-5058 during business hours to check availability and discuss your plumbing project.',
       },
     ],
   },
@@ -585,7 +585,7 @@ export const locations: LocationDef[] = [
     faqs: [
       {
         q: 'Are you available as a local plumber in Friendswood, TX?',
-        a: 'Yes. Friendswood is a core service area for residential plumbing repair and commercial plumbing work. Call (713) 501-1214 to confirm scheduling for your address.',
+        a: 'Yes. Friendswood is a core service area for residential plumbing repair and commercial plumbing work. Call (281) 516-5058 to confirm scheduling for your address.',
       },
       {
         q: 'Can your Friendswood plumbers repair or replace water heaters?',
@@ -609,7 +609,7 @@ export const locations: LocationDef[] = [
     faqs: [
       {
         q: 'How can I confirm plumber availability for my address in Houston, TX?',
-        a: 'Call us directly at (713) 501-1214 with your Houston address and plumbing issue, and our team will confirm service availability and next steps.',
+        a: 'Call us directly at (281) 516-5058 with your Houston address and plumbing issue, and our team will confirm service availability and next steps.',
       },
       {
         q: 'Can you help with slab leaks and hidden pipe leaks in Houston?',
@@ -657,7 +657,7 @@ export const locations: LocationDef[] = [
     faqs: [
       {
         q: 'How do I schedule a plumber in Manvel, TX?',
-        a: 'Call us Monday through Saturday between 7 AM and 7 PM at (713) 501-1214 to discuss your plumbing needs in Manvel and arrange an appointment.',
+        a: 'Call us Monday through Saturday between 7 AM and 7 PM at (281) 516-5058 to discuss your plumbing needs in Manvel and arrange an appointment.',
       },
       {
         q: 'Do you handle new construction plumbing in Manvel?',
@@ -685,7 +685,7 @@ export const locations: LocationDef[] = [
       },
       {
         q: 'What should I do if my water heater is leaking in League City?',
-        a: 'Turn off the cold water shutoff valve to the tank and call (713) 501-1214 during business hours so we can arrange an inspection and discuss repair or replacement.',
+        a: 'Turn off the cold water shutoff valve to the tank and call (281) 516-5058 during business hours so we can arrange an inspection and discuss repair or replacement.',
       },
       {
         q: 'Do you repair and install tankless water heaters in League City?',
@@ -729,7 +729,7 @@ export const locations: LocationDef[] = [
     faqs: [
       {
         q: 'How can I book a plumber in Webster, TX?',
-        a: 'Call (713) 501-1214 Monday through Saturday, 7 AM to 7 PM. We handle all scheduling by phone so you speak directly with our plumbing team.',
+        a: 'Call (281) 516-5058 Monday through Saturday, 7 AM to 7 PM. We handle all scheduling by phone so you speak directly with our plumbing team.',
       },
       {
         q: 'Can you install gas lines for appliances and generators in Webster?',
@@ -777,7 +777,7 @@ export const locations: LocationDef[] = [
     faqs: [
       {
         q: 'Do you serve homes and businesses in Sugar Land, TX?',
-        a: 'Yes. Call (713) 501-1214 with your Sugar Land address and plumbing concern to confirm scheduling for water heaters, leak detection, drain cleaning, or repairs.',
+        a: 'Yes. Call (281) 516-5058 with your Sugar Land address and plumbing concern to confirm scheduling for water heaters, leak detection, drain cleaning, or repairs.',
       },
       {
         q: 'Can you locate slab leaks in Sugar Land homes?',

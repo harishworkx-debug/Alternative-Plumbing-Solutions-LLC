@@ -37,7 +37,7 @@ const homeFaqs = [
   },
   {
     q: 'How do I schedule a plumbing service?',
-    a: 'All scheduling is handled by phone. Call us at (713) 501-1214, describe your plumbing issue, and we will confirm availability and arrange the next steps directly with you.',
+    a: 'All scheduling is handled by phone. Call us at (281) 516-5058, describe your plumbing issue, and we will confirm availability and arrange the next steps directly with you.',
   },
   {
     q: 'Should I get a sewer line inspection before buying an older home?',
@@ -53,7 +53,7 @@ const homeFaqs = [
   },
   {
     q: 'What should I do if I have a burst pipe or active leak?',
-    a: 'Shut off your main water supply if you can, then call us right away at (713) 501-1214. We will work to get a plumber to you as quickly as possible to stop the leak and assess the damage.',
+    a: 'Shut off your main water supply if you can, then call us right away at (281) 516-5058. We will work to get a plumber to you as quickly as possible to stop the leak and assess the damage.',
   },
 ];
 
@@ -61,7 +61,7 @@ const processSteps = [
   {
     icon: Phone,
     title: 'Call Our Team',
-    desc: 'Pick up the phone and call us at (713) 501-1214. You will speak directly with our plumbing team.',
+    desc: 'Pick up the phone and call us at (281) 516-5058. You will speak directly with our plumbing team.',
   },
   {
     icon: Wrench,
@@ -124,7 +124,7 @@ export default function HomePage() {
     <>
       <Seo
         title="Alternative Plumbing Solutions | Plumber in Pearland, TX"
-        description="Looking for a local plumber in Pearland, TX? Explore plumbing repairs, drain cleaning, water heater service, and leak detection. Call (713) 501-1214."
+        description="Looking for a local plumber in Pearland, TX? Explore plumbing repairs, drain cleaning, water heater service, and leak detection. Call (281) 516-5058."
         path="/"
         ogImage={heroImage}
         jsonLd={jsonLd}

@@ -113,7 +113,7 @@ export const articles: PlumbingArticle[] = [
       },
       {
         q: 'Who can inspect a recurring drain problem in Pearland?',
-        a: 'Call Alternative Plumbing Solutions at (713) 501-1214 (Monday–Saturday, 7 AM–7 PM) to describe which fixtures are backing up and arrange a service visit.',
+        a: 'Call Alternative Plumbing Solutions at (281) 516-5058 (Monday–Saturday, 7 AM–7 PM) to describe which fixtures are backing up and arrange a service visit.',
       },
     ],
     relatedServiceSlugs: [
@@ -200,7 +200,7 @@ export const articles: PlumbingArticle[] = [
       },
       {
         q: 'Who repairs and installs water heaters in Pearland, TX?',
-        a: 'Call Alternative Plumbing Solutions at (713) 501-1214 (Monday–Saturday, 7 AM–7 PM) for tank and tankless diagnostics, repair, and replacement.',
+        a: 'Call Alternative Plumbing Solutions at (281) 516-5058 (Monday–Saturday, 7 AM–7 PM) for tank and tankless diagnostics, repair, and replacement.',
       },
     ],
     relatedServiceSlugs: [
@@ -281,7 +281,7 @@ export const articles: PlumbingArticle[] = [
       },
       {
         q: 'How do I book a sewer line camera inspection in Pearland or Friendswood?',
-        a: 'Call Alternative Plumbing Solutions at (713) 501-1214 (Monday–Saturday, 7 AM–7 PM) to discuss symptoms and arrange an inspection.',
+        a: 'Call Alternative Plumbing Solutions at (281) 516-5058 (Monday–Saturday, 7 AM–7 PM) to discuss symptoms and arrange an inspection.',
       },
     ],
     relatedServiceSlugs: [
@@ -357,7 +357,7 @@ export const articles: PlumbingArticle[] = [
       },
       {
         q: 'What should I do immediately if I discover an active leak in a wall or ceiling?',
-        a: 'Turn off your main water shutoff valve to limit damage, protect belongings below wet drywall, and call Alternative Plumbing Solutions at (713) 501-1214 during business hours (Mon–Sat 7 AM–7 PM).',
+        a: 'Turn off your main water shutoff valve to limit damage, protect belongings below wet drywall, and call Alternative Plumbing Solutions at (281) 516-5058 during business hours (Mon–Sat 7 AM–7 PM).',
       },
     ],
     relatedServiceSlugs: [
@@ -432,7 +432,7 @@ export const articles: PlumbingArticle[] = [
       },
       {
         q: 'How can I discuss repair vs repiping options for my home?',
-        a: 'Call Alternative Plumbing Solutions at (713) 501-1214 (Monday–Saturday, 7 AM–7 PM) to describe your home age and symptoms and arrange an evaluation.',
+        a: 'Call Alternative Plumbing Solutions at (281) 516-5058 (Monday–Saturday, 7 AM–7 PM) to describe your home age and symptoms and arrange an evaluation.',
       },
     ],
     relatedServiceSlugs: [

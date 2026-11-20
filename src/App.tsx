@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route, Navigate, Outlet } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import Layout from '@/components/Layout';
 import HomePage from '@/pages/HomePage';
 import AboutPage from '@/pages/AboutPage';
@@ -13,30 +13,12 @@ import GuideDetailPage from '@/pages/GuideDetailPage';
 import PrivacyPolicyPage from '@/pages/PrivacyPolicyPage';
 import TermsPage from '@/pages/TermsPage';
 import NotFoundPage from '@/pages/NotFoundPage';
-import StandaloneLandingPage from '@/standalone-landing/StandaloneLandingPage';
-import { USE_LANDING_PAGE_AS_HOME } from '@/siteMode';
-
-function MainSiteLayout() {
-  return (
-    <Layout>
-      <Outlet />
-    </Layout>
-  );
-}
 
 export function AppRoutes() {
   return (
-    <Routes>
-      {/* 🚀 Standalone Landing Page Routes (Zero Main Website Layout/Branding) */}
-      {USE_LANDING_PAGE_AS_HOME && <Route path="/" element={<StandaloneLandingPage />} />}
-      {USE_LANDING_PAGE_AS_HOME && (
-        <Route path="/plumber-pearland-tx" element={<StandaloneLandingPage />} />
-      )}
-      <Route path="/home-page" element={<StandaloneLandingPage />} />
-
-      {/* 🏛️ Main Multi-Page Website Routes (Inside Original Layout) */}
-      <Route element={<MainSiteLayout />}>
-        {!USE_LANDING_PAGE_AS_HOME && <Route path="/" element={<HomePage />} />}
+    <Layout>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
         <Route path="/about" element={<AboutPage />} />
         <Route path="/services" element={<ServicesIndexPage />} />
         <Route path="/services/:serviceSlug" element={<ServiceDetailPage />} />
@@ -51,8 +33,8 @@ export function AppRoutes() {
         <Route path="/terms-and-conditions" element={<TermsPage />} />
         <Route path="/:slug" element={<DynamicPage />} />
         <Route path="*" element={<NotFoundPage />} />
-      </Route>
-    </Routes>
+      </Routes>
+    </Layout>
   );
 }
 

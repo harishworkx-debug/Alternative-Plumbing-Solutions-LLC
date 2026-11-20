@@ -616,7 +616,7 @@ export function getServiceLocationContent(service: ServiceDef, location: Locatio
   const localizedFaqs = [
     {
       q: `Do you provide ${service.seo.primaryServiceName.toLowerCase()} in ${city}, ${state}?`,
-      a: `Yes. Alternative Plumbing Solutions provides ${service.seo.primaryServiceName.toLowerCase()} (${service.seo.secondaryKeywordsLabel.toLowerCase()}) for residential and commercial properties in ${city}, ${state}. Call (713) 501-1214 during business hours (Monday–Saturday, 7 AM–7 PM) to confirm scheduling.`,
+      a: `Yes. Alternative Plumbing Solutions provides ${service.seo.primaryServiceName.toLowerCase()} (${service.seo.secondaryKeywordsLabel.toLowerCase()}) for residential and commercial properties in ${city}, ${state}. Call (281) 516-5058 during business hours (Monday–Saturday, 7 AM–7 PM) to confirm scheduling.`,
     },
     ...service.faqs,
     expertise.extraFaq,
@@ -640,13 +640,13 @@ export function getServiceLocationContent(service: ServiceDef, location: Locatio
     comparisonNotes: expertise.comparisonNotes,
     localRelevanceParagraphs: [
       localContext,
-      `Call (713) 501-1214 to speak directly with our plumbing team about ${service.seo.primaryServiceName.toLowerCase()} in ${city}, ${state}. We confirm availability for your ${location.county} address by phone and discuss straightforward pricing and next steps before work begins.`,
+      `Call (281) 516-5058 to speak directly with our plumbing team about ${service.seo.primaryServiceName.toLowerCase()} in ${city}, ${state}. We confirm availability for your ${location.county} address by phone and discuss straightforward pricing and next steps before work begins.`,
     ],
     whyChoosePoints: [
       `Serving residential and commercial properties in ${city}, ${state} and ${location.county}`,
       'Focused on practical, alternative plumbing solutions rather than pushing unnecessary upgrades',
       'Direct phone troubleshooting and straightforward upfront explanations before work starts',
-      'Available Monday through Saturday, 7:00 AM to 7:00 PM at (713) 501-1214',
+      'Available Monday through Saturday, 7:00 AM to 7:00 PM at (281) 516-5058',
       '4.0★ average customer rating across 48 Google reviews',
     ],
     faqs: localizedFaqs,
