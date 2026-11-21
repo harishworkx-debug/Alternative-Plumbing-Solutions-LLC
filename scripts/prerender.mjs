@@ -141,6 +141,27 @@ function resolveSsrEntry() {
       return candidate;
     }
   }
+
+  function findRecursive(dir) {
+    if (!fs.existsSync(dir)) return [];
+    let entries = [];
+    for (const item of fs.readdirSync(dir)) {
+      const full = path.join(dir, item);
+      const stat = fs.statSync(full);
+      if (stat.isDirectory()) {
+        entries = entries.concat(findRecursive(full));
+      } else if (/^entry-server.*\.(js|mjs)$/i.test(item)) {
+        entries.push(full);
+      }
+    }
+    return entries;
+  }
+
+  const found = findRecursive(ssrDir);
+  if (found.length > 0) {
+    return found[0];
+  }
+
   throw new Error(`Could not find SSR bundle in ${ssrDir}`);
 }
 

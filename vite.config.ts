@@ -13,4 +13,16 @@ export default defineConfig({
   optimizeDeps: {
     exclude: ['lucide-react'],
   },
+  build: {
+    rollupOptions: {
+      output: {
+        entryFileNames: (chunkInfo) => {
+          if (chunkInfo.name === 'entry-server') {
+            return 'entry-server.js';
+          }
+          return 'assets/[name]-[hash].js';
+        },
+      },
+    },
+  },
 });
